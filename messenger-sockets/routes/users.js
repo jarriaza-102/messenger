@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
+const randomstring = require("randomstring");
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -41,6 +42,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/login', function (req, res) {
+	//console.log(req.get('token'));
 	const pool = new db.pg.Pool({
 		connectionString: db.connectionString
 	});
@@ -68,10 +70,17 @@ router.post('/login', function (req, res) {
 
 		query.on('end', () => {
 			done();
+			if (result !== undefined) {
+				const token = randomstring.generate();
+				client.query(new db.pg.Query('INSERT INTO tokens(token, user_id) VALUES($1,$2)', [token, result.id]));
+				result.token = token;
+			}
 			return res.json(result);
 		});
 
 	});
+
+	pool.end();
 	
 });
 
