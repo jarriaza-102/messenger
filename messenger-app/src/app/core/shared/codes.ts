@@ -2,7 +2,7 @@ export class Codes {
 
   static getRedirectionRoute() {
     return {
-      auth: '/login',
+      login: '/login',
       home: '/home'
     };
   }

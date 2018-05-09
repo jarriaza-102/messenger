@@ -21,7 +21,8 @@
       "styles": [
         "styles.css",
         "assets/css/bootstrap.css",
-        "assets/css/loaders.css"
+        "assets/css/loaders.css",
+        "assets/css/font-awesome.css"
       ],
       "scripts": [
         "assets/js/jquery.js",

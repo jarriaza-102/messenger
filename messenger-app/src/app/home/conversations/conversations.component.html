@@ -1,1 +1,20 @@
-My Conversation Component
+<div class="pl-4 pr-4 pt-2">
+  <div class="row mb-3" *ngFor="let conversation of conversations">
+    <div class="col-sm-2">
+      <img class="rounded-circle full-size"
+           [src]="conversation.img"
+           alt="Generic placeholder image">
+    </div>
+
+    <div class="col-sm-8 f-8">
+
+      <div class="fw-500">{{conversation.name}}</div>
+      <div>{{conversation.message}}</div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="time">{{conversation.sentOn}}</div>
+      <div>{{conversation.status}}</div>
+    </div>
+  </div>
+</div>

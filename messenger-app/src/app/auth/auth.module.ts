@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AuthService} from "./auth/shared/auth.service";
 import {CoreModule} from "../core/core.module";
+import {AuthGuard} from "./auth/shared/auth.guard";
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {CoreModule} from "../core/core.module";
     AuthComponent
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ]
 })
 export class AuthModule { }

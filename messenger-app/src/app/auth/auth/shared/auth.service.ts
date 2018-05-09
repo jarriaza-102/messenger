@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {AuthUser} from "./auth-user";
 import {SocketService} from "../../../core/socket/socket.service";
 import {Codes} from "../../../core/shared/codes";
+import {isNullOrUndefined} from "util";
 
 @Injectable()
 export class AuthService {
@@ -32,16 +33,16 @@ export class AuthService {
     this.route.navigate( [ Codes.getRedirectionRoute().home ]);
   }
 
-  /*logout() {
+  logout() {
     this.options.loggedUser = undefined;
     this.options.isLoggedUser = false;
     localStorage.removeItem(this.options.authUserKey);
-    this.route.navigate( [ Codes.getRedirectionRoute().auth ]);
+    this.route.navigate( [ Codes.getRedirectionRoute().login ]);
   }
 
   loadCookie() {
     const loggedUser = localStorage.getItem(this.options.authUserKey);
-    if (!Utilities.isEmpty(loggedUser)) {
+    if (!isNullOrUndefined(loggedUser)) {
       this.options.loggedUser = JSON.parse(loggedUser) as AuthUser;
       this.options.isLoggedUser = true;
     }
@@ -55,6 +56,6 @@ export class AuthService {
   isAuthUser(): boolean {
     this.loadCookie();
     return this.options.isLoggedUser;
-  }*/
+  }
 
 }
