@@ -8,18 +8,15 @@ server.listen(port, function() {
 
 var io = require('socket.io')(server);
 var clients = {};
+
 io.on('connection', function(socket){
 	console.log('----------');
-	var userId = socket.handshake.query.idUser;
+	var userId = socket.handshake.query.userId;
 	console.log(userId);
 
 	socket.on('login', function(msg){
 		console.log('login');
 		io.emit('login', msg);
-	});
-
-	socket.on('notification', function(msg){
-		io.emit('notification', msg);
 	});
 
 	if (userId !== undefined) {

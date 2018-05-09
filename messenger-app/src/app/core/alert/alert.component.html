@@ -1,0 +1,30 @@
+<div *ngIf="list.length > 0">
+
+  <div class="alert alert-danger" *ngIf="type === 'danger'">
+    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+    <div *ngFor="let message of list">
+      {{message}}
+    </div>
+  </div>
+
+  <div class="alert alert-warning" *ngIf="type === 'warning'">
+    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+    <div *ngFor="let message of list">
+      {{message}}
+    </div>
+  </div>
+
+  <div class="alert alert-info" *ngIf="type === 'info'">
+    <div *ngFor="let message of list">
+      {{message}}
+    </div>
+  </div>
+
+  <div class="alert alert-success" *ngIf="type === 'success'">
+    <button class="close" data-dismiss="alert"><i class="pci-cross pci-circle"></i></button>
+    <div *ngFor="let message of list">
+      {{message}}
+    </div>
+  </div>
+
+</div>

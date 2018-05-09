@@ -6,19 +6,19 @@ const cors = require('cors')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(require('sanitize').middleware);
 var userRoutes = require('./routes/users');
 
 app.use('/', function (req, res, next) {
-	console.log(req.originalUrl);
+	next();
+		return;
 	if (req.originalUrl === '/users/login') {
 		next();
 		return;
 	}
 	const token = req.get('token');
 	if (token === undefined) {
-		return res.json({
-			status: 'fail'
-		});
+		return res.status(401).json(getError());
 	}
 
 	var result = undefined;
@@ -31,7 +31,6 @@ app.use('/', function (req, res, next) {
 
 		if (err) {
 			done();
-			console.log(err);
 			return res.status(500).json(err);
 		}
 
@@ -39,10 +38,7 @@ app.use('/', function (req, res, next) {
 
 		query.on('error', (response) => {
 			done();
-			return res.json({
-				status: 'fail',
-				message: 'Token does not exist'
-			});
+			return res.status(401).json(getError());
 		});
 
 		query.on('row', (row) => {
@@ -52,10 +48,7 @@ app.use('/', function (req, res, next) {
 		query.on('end', () => {
 			done();
 			if (result === undefined) {
-				return res.json({
-					status: 'fail',
-					message: 'Token does not exist'
-				});
+				return res.status(401).json(getError());
 			}
 			next();
 			return;
@@ -71,5 +64,11 @@ app.use('/users', userRoutes);
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
 });
+
+function getError() {
+	return {
+			status: 'fail'
+		};
+}
 
 module.exports = app;

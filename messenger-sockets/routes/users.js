@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db/db');
 const randomstring = require("randomstring");
+const promiseHelper = require('../utils/promiseHelper');
 
 /* GET users listing. */
 router.get('/', function(req, res) {
@@ -15,11 +16,10 @@ router.get('/', function(req, res) {
 
 		if (err) {
 			done();
-			console.log(err);
 			return res.status(500).json(err);
 		}
 
-		const query = client.query(new db.pg.Query('SELECT id, email, full_name from users'));
+		const query = client.query(new db.pg.Query('SELECT id, email, full_name, password from users'));
 
 		query.on('error', (response) => {
 			done();
@@ -41,8 +41,9 @@ router.get('/', function(req, res) {
 
 });
 
-router.post('/login', function (req, res) {
-	//console.log(req.get('token'));
+/* GET user. */
+router.get('/:id', function(req, res) {
+	const id = req.params.id;
 	const pool = new db.pg.Pool({
 		connectionString: db.connectionString
 	});
@@ -53,11 +54,10 @@ router.post('/login', function (req, res) {
 
 		if (err) {
 			done();
-			console.log(err);
 			return res.status(500).json(err);
 		}
 
-		const query = client.query(new db.pg.Query('SELECT id, email, full_name from users where email = ($1) AND password = ($2)', [req.body.email, req.body.password]));
+		const query = client.query(new db.pg.Query('SELECT id, email, full_name from users WHERE id = '  + id));
 
 		query.on('error', (response) => {
 			done();
@@ -70,12 +70,78 @@ router.post('/login', function (req, res) {
 
 		query.on('end', () => {
 			done();
-			if (result !== undefined) {
-				const token = randomstring.generate();
-				client.query(new db.pg.Query('INSERT INTO tokens(token, user_id) VALUES($1,$2)', [token, result.id]));
-				result.token = token;
-			}
 			return res.json(result);
+		});
+
+	});
+
+	pool.end();
+
+});
+
+/* LOGIN */
+router.post('/login', async (req, res) => {
+	const pool = new db.pg.Pool({
+		connectionString: db.connectionString
+	});
+
+	var result = undefined;
+
+	pool.connect( async (err, client, done) => {
+
+		if (err) {
+			done();
+			return res.status(500).json(err);
+		}
+
+		var [error, response] = await promiseHelper.handle(client.query('SELECT id, email, full_name from users where email = ($1) AND password = ($2)', 
+				[req.body.email, req.body.password]));
+
+		if (error) {
+			done();
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					error
+				]
+			});
+		}
+
+		result = response.rows[0];
+		if (result === undefined) {
+			done();
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					'Users does not exist'
+				]
+			});
+		}
+
+		const token = randomstring.generate();
+
+		[error, response] = await promiseHelper.handle(client.query('INSERT INTO tokens(token, user_id) VALUES($1,$2)', [token, result.id]));
+
+		if (error) {
+			done();
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					error
+				]
+			});
+		}
+
+		result.token = token;
+		done();
+
+		return res.json({
+			Data: result,
+			Count: 1,
+			ErrorMessages: []
 		});
 
 	});
@@ -84,35 +150,157 @@ router.post('/login', function (req, res) {
 	
 });
 
-router.post('/', function (req, res) {
+router.post('/search', async (req, res) => {
+
 	const pool = new db.pg.Pool({
 		connectionString: db.connectionString
 	});
 
-	var result = undefined;
+	var result = true;
 
-	pool.connect((err, client, done) => {
+	pool.connect(async (err, client, done) => {
 
 		if (err) {
 			done();
-			console.log(err);
 			return res.status(500).json(err);
 		}
 
-		const query = client.query(new db.pg.Query('INSERT INTO users (email,password,full_name) VALUES($1,$2,$3)', [req.body.email, req.body.password, req.body.full_name]));
+		const user = {
+			email: req.bodyString('email'),
+			full_name: req.bodyString('full_name')
+		};
 
-		query.on('error', (response) => {
-			done();
-			return res.json(response);
+		var where = '';
+		if (user.email !== undefined) {
+			where = 'email LIKE \'%' + user.email + '%\'';
+		}
+
+		if (user.full_name !== undefined) {
+			where = (where != '') ? where + ' and full_name LIKE \'%' + user.full_name + '%\'' : 'full_name LIKE \'%' + user.full_name + ' %\'';
+		}
+
+		if (where != '') {
+			where = 'where ' + where;
+		}
+
+		const [error, response] = await promiseHelper.handle(client.query('SELECT id, email, full_name from users ' + where));
+		done();
+		if (error) {
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					error
+				]
+			});
+		}
+		return res.json({
+			Data: response.rows,
+			Count: response.rowCount,
+			ErrorMessages: []
 		});
 
-		query.on('row', (row) => {
-			result = row;
-		});
+	});
 
-		query.on('end', () => {
+	pool.end();
+
+});
+
+router.post('/', async (req, res) => {
+
+	const pool = new db.pg.Pool({
+		connectionString: db.connectionString
+	});
+
+	var result = true;
+
+	pool.connect(async (err, client, done) => {
+
+		if (err) {
 			done();
-			return res.json(result);
+			return res.status(500).json(err);
+		}
+
+		const user = {
+			email: req.bodyString('email').trim(),
+			password: req.bodyString('password').trim(), 
+			full_name: req.bodyString('full_name').trim()
+		};
+		var [error, response] = await promiseHelper.handle(client.query('SELECT id from users where email = ($1)', [user.email]));
+		if (response.rowCount > 0 ) {
+			done();
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					'Email is already in use'
+				]
+			});
+		}
+
+		[error, response] = await promiseHelper.handle(client.query('INSERT INTO users (email,password,full_name) VALUES($1,$2,$3)', [user.email, user.password, user.full_name]));
+
+		done();
+		if (error) {
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					error
+				]
+			});
+		}
+
+		return res.json({
+			Data: true,
+			Count: 0,
+			ErrorMessages: []
+		});
+	});
+
+	pool.end();
+
+});
+
+/* UPDATE */
+router.patch('/:id', async (req, res) => {
+	const id = req.params.id;
+
+	const pool = new db.pg.Pool({
+		connectionString: db.connectionString
+	});
+
+	pool.connect( async (err, client, done) => {
+
+		if (err) {
+			done();
+			return res.status(500).json(err);
+		}
+
+		const user = {
+			email: req.bodyString('email').trim(),
+			full_name: req.bodyString('full_name').trim()
+		};
+
+		var [error, response] = await promiseHelper.handle(client.query('UPDATE users SET email = ($1), full_name = ($2) WHERE id = ' + id, 
+				[user.email, user.full_name]));
+
+		done();
+
+		if (error) {
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					error
+				]
+			});
+		}
+
+		return res.json({
+			Data: true,
+			Count: 0,
+			ErrorMessages: []
 		});
 
 	});
