@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ConversationService} from "../shared/conversation.service";
 
 @Component({
   selector: 'conversations',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ConversationsComponent implements OnInit {
   conversations = [];
 
-  constructor() { }
+  constructor(private conversationService: ConversationService) { }
 
   ngOnInit() {
     this.conversations = [

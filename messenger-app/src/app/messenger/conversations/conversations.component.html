@@ -1,9 +1,9 @@
+<messenger-base active="conversations"></messenger-base>
 <div class="pl-4 pr-4 pt-2">
   <div class="row mb-3" *ngFor="let conversation of conversations">
-    <div class="col-sm-2">
-      <img class="rounded-circle full-size"
-           [src]="conversation.img"
-           alt="Generic placeholder image">
+    <div class="col-sm-1 mr-4">
+      <img class="rounded-circle user-photo"
+           [src]="conversation.img">
     </div>
 
     <div class="col-sm-8 f-8">

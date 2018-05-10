@@ -55,6 +55,7 @@ export class AuthService {
 
   isAuthUser(): boolean {
     this.loadCookie();
+    console.log(this.options);
     return this.options.isLoggedUser;
   }
 

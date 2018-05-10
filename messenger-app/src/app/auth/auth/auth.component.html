@@ -1,4 +1,4 @@
-<form (ngSubmit)="onLogin()" #authForm="ngForm">
+<form (ngSubmit)="onLogin()" #authForm="ngForm" class="form-login">
 
   <alert [list]="options.validationErrors"></alert>
 
@@ -16,6 +16,17 @@
            required #password="ngModel" autofocus
            [(ngModel)]="authUser.password" name="password" placeholder="Password">
   </div>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
+  </form>
+
 
   <button class="col-sm-7 m-auto btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 </form>

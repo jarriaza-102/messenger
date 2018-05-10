@@ -6,11 +6,6 @@
   font-weight: 500;
 }
 
-.full-size {
-  height: 100%;
-  width: 100%;
-}
-
 .global-container {
   margin: auto;
   width: 100%;
@@ -26,6 +21,54 @@
   font-size: 22px;
 }
 
+.form-login{
+  padding: 35px;
+}
+
+.navigation-menu > a {
+  color: inherit;
+  cursor: pointer;
+}
+
+.navigation-menu > a:hover {
+  color: inherit;
+}
+
+.search-button {
+  background: white;
+  color: gray;
+  border: gray;
+  border-radius: 0;
+  height: 38px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 .time {
   font-size: 12px;
 }
+
+.user-photo {
+  height: 50px;
+  height: 50px;
+}
+
+/* Search */
+
+.search-results {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  margin-top: 0.5px !important;
+}
+
+.search-results-item {
+  width: 87%;
+  margin: auto;
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 8px 0px;
+}
+
+/* End Search */

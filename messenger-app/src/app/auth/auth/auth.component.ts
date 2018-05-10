@@ -37,8 +37,7 @@ export class AuthComponent {
       }
       return;
     }
-
-    this.authService.auth(this.authUser);
+    this.authService.auth(response.Data as AuthUser);
   }
 
 }

@@ -1,0 +1,54 @@
+<div class="row pt-3 ml-4 mr-4">
+  <div class="col-sm-12">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..."
+             [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChanged($event)">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary search-button" type="button">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="search-results" *ngIf="display.results">
+  <div class="row search-results-item m-auto" *ngFor="let searchResult of searchResults">
+    <div class="col-sm-1 mr-4">
+
+      <img class="rounded-circle user-photo"
+           [src]="searchResult.img">
+
+    </div>
+
+    <div class="col-sm-7 f-8">
+
+      <div class="fw-500">{{searchResult.name}}</div>
+      <div>{{searchResult.info}}</div>
+    </div>
+
+    <div class="col-sm-3">
+      <button class="btn btn-sm btn-primary" *ngIf="searchResult.add">
+        Add
+      </button>
+      <button class="btn btn-sm btn-primary" *ngIf="searchResult.view">
+        View
+      </button>
+    </div>
+  </div>
+
+  <div class="row search-results-item m-auto" *ngIf="display.other">
+    <div class="col-sm-12 text-center">
+      <div class="fw-500">
+        <a href="/search?searchTearm={{searchTerm}}">View more...</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row search-results-item m-auto" *ngIf="searchResults.length == 0">
+    <div class="col-sm-12 text-center">
+      <div class="fw-500">No results...</div>
+    </div>
+  </div>
+
+</div>

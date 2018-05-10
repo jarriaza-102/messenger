@@ -7,6 +7,7 @@ import {AuthModule} from "./auth/auth.module";
 import {routing} from "./core/routing/";
 import {NgxElectronModule} from "ngx-electron";
 import {HttpClientModule} from "@angular/common/http";
+import {MessengerModule} from "./messenger/messenger.module";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {HttpClientModule} from "@angular/common/http";
     HttpClientModule,
     routing,
     AuthModule,
-    NgxElectronModule
+    NgxElectronModule,
+    MessengerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

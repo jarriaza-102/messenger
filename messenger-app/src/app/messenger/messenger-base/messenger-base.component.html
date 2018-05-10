@@ -1,0 +1,16 @@
+<div class="app-color">
+
+  <search-users></search-users>
+
+  <div class="row pt-3 ml-2 mr-2 text-center navigation-menu">
+    <a href="/home" class="col-sm-4" [ngClass]="{'navigation-active': active == 'conversations'}">
+      <i class="fa fa-home"></i>
+    </a>
+    <a href="/groups" class="col-sm-4" [ngClass]="{'navigation-active': active == 'groups'}">
+      <i class="fa fa-users"></i>
+    </a>
+    <a href="/config" class="col-sm-4" [ngClass]="{'navigation-active': active == 'config'}">
+      <i class="fa fa-cog"></i>
+    </a>
+  </div>
+</div>
