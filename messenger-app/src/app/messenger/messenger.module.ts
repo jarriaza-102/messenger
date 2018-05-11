@@ -7,17 +7,24 @@ import {FormsModule} from "@angular/forms";
 import { SearchComponent } from './search/search.component';
 import {UserService} from "./shared/user.service";
 import {ConversationService} from "./shared/conversation.service";
+import {MatInputModule, MatListModule, MatTabsModule, MatIconModule} from "@angular/material";
+import { GroupsComponent } from './groups/groups.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    MatInputModule,
+    MatListModule,
+    MatTabsModule,
+    MatIconModule
   ],
   declarations: [
     ConversationsComponent,
     MessengerBaseComponent,
-    SearchComponent
+    SearchComponent,
+    GroupsComponent
   ],
   exports: [
     ConversationsComponent

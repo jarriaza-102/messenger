@@ -167,23 +167,29 @@ router.post('/search', async (req, res) => {
 
 		const user = {
 			email: req.bodyString('email'),
-			full_name: req.bodyString('full_name')
+			full_name: req.bodyString('full_name'),
+			limit: req.bodyInt('limit')
 		};
 
 		var where = '';
 		if (user.email !== undefined) {
-			where = 'email LIKE \'%' + user.email + '%\'';
+			where = 'LOWER(email) LIKE LOWER(\'%' + user.email + '%\')';
 		}
 
 		if (user.full_name !== undefined) {
-			where = (where != '') ? where + ' and full_name LIKE \'%' + user.full_name + '%\'' : 'full_name LIKE \'%' + user.full_name + ' %\'';
+			where = (where != '') ? where + ' and LOWER(full_name) LIKE LOWER(\'%' + user.full_name + '%\')' : 'LOWER(full_name) LIKE LOWER(\'%' + user.full_name + '%\')';
 		}
 
 		if (where != '') {
 			where = 'where ' + where;
+			if (user.limit !== undefined) {
+				where += ' LIMIT ' + user.limit;
+			}
+		} else {
+			where = 'LIMIT ' + user.limit;
 		}
 
-		const [error, response] = await promiseHelper.handle(client.query('SELECT id, email, full_name from users ' + where));
+		const [error, response] = await promiseHelper.handle(client.query('SELECT id, full_name as name from users ' + where));
 		done();
 		if (error) {
 			return res.json({
@@ -194,6 +200,21 @@ router.post('/search', async (req, res) => {
 				]
 			});
 		}
+
+		var lala = response.rows;
+		var newArray = [];
+		for (var i=0;i<lala.length;i++) {
+			newArray.push({
+				id: lala[i].id,
+				name: lala[i].name,
+				img: 'data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==',
+				info: 'other info',
+				view: true,
+				add: true
+			});
+		}
+		response.rows = newArray;
+
 		return res.json({
 			Data: response.rows,
 			Count: response.rowCount,

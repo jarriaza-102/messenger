@@ -1,16 +1,26 @@
-<div class="app-color">
+<search-users></search-users>
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon matSuffix>home</mat-icon>
+    </ng-template>
 
-  <search-users></search-users>
+    <conversations></conversations>
 
-  <div class="row pt-3 ml-2 mr-2 text-center navigation-menu">
-    <a href="/home" class="col-sm-4" [ngClass]="{'navigation-active': active == 'conversations'}">
-      <i class="fa fa-home"></i>
-    </a>
-    <a href="/groups" class="col-sm-4" [ngClass]="{'navigation-active': active == 'groups'}">
-      <i class="fa fa-users"></i>
-    </a>
-    <a href="/config" class="col-sm-4" [ngClass]="{'navigation-active': active == 'config'}">
-      <i class="fa fa-cog"></i>
-    </a>
-  </div>
-</div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon matSuffix>group</mat-icon>
+    </ng-template>
+    <groups></groups>
+  </mat-tab>
+
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon matSuffix>settings</mat-icon>
+    </ng-template>
+    <groups></groups>
+  </mat-tab>
+
+</mat-tab-group>

@@ -1,5 +1,7 @@
-.app-color {
-  background: #1787fb;
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  background: #195cb4;
 }
 
 .fw-500 {
@@ -19,6 +21,18 @@
 .navigation-menu {
   color: white;
   font-size: 22px;
+}
+
+.search-input{
+  border-radius: 100px;
+  padding: 5px 16px;
+  width: 50%;
+  height: 50%;
+  margin-bottom: 15px;
+}
+
+.search-input:focus {
+  width: 100%;
 }
 
 .form-login{
@@ -50,7 +64,14 @@
 
 .user-photo {
   height: 50px;
-  height: 50px;
+  width: 50px;
+}
+
+.mat-tab-label  {
+  min-width: 100% !important;
+}
+.mat-tab-labels {
+  width: 33%;
 }
 
 /* Search */
@@ -66,8 +87,12 @@
   width: 87%;
   margin: auto;
   background: white;
-  border: 1px solid black;
-  border-radius: 5px;
+  height: auto !important;
+  border-radius: 2px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-color: rgba(0,0,0,.30);
   padding: 8px 0px;
 }
 

@@ -1,0 +1,19 @@
+<div class="pl-4 pr-4 pt-2">
+  <div class="row mb-3" *ngFor="let group of groups">
+    <div class="col-sm-1 mr-4">
+      <img class="rounded-circle user-photo"
+           [src]="group.img">
+    </div>
+
+    <div class="col-sm-8 f-8">
+
+      <div class="fw-500">{{group.name}}</div>
+      <div>{{group.message}}</div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="time">{{group.sentOn}}</div>
+      <div>{{group.status}}</div>
+    </div>
+  </div>
+</div>

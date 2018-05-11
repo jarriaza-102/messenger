@@ -8,7 +8,7 @@ import {CoreModule} from "../core/core.module";
 import {AuthGuard} from "./auth/shared/auth.guard";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatNativeDateModule} from "@angular/material/core";
-import {MatInputModule} from "@angular/material/input";
+import {MatInputModule, MatButtonModule} from "@angular/material";
 
 @NgModule({
   imports: [
@@ -17,6 +17,7 @@ import {MatInputModule} from "@angular/material/input";
     HttpClientModule,
     CoreModule,
     MatInputModule,
+    MatButtonModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
     ReactiveFormsModule,

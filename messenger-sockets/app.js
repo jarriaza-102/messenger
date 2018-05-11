@@ -7,7 +7,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(require('sanitize').middleware);
-var userRoutes = require('./routes/users');
+const userRoutes = require('./routes/users');
+const conversationsRoutes = require('./routes/conversations');
 
 app.use('/', function (req, res, next) {
 	next();
@@ -16,7 +17,7 @@ app.use('/', function (req, res, next) {
 		next();
 		return;
 	}
-	const token = req.get('token');
+	const token = req.get('api-token');
 	if (token === undefined) {
 		return res.status(401).json(getError());
 	}
@@ -60,6 +61,7 @@ app.use('/', function (req, res, next) {
 });
 
 app.use('/users', userRoutes);
+app.use('/conversations', conversationsRoutes);
 
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');

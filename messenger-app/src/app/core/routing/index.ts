@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {AuthComponent} from "../../auth/auth/auth.component";
 import {AuthGuard} from "../../auth/auth/shared/auth.guard";
 import {ConversationsComponent} from "../../messenger/conversations/conversations.component";
+import {GroupsComponent} from "../../messenger/groups/groups.component";
+import {MessengerBaseComponent} from "../../messenger/messenger-base/messenger-base.component";
 
 const routes: Routes = [
   {
@@ -17,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: ConversationsComponent,
+    component: MessengerBaseComponent,
     canActivate: [AuthGuard]
   },
   {
