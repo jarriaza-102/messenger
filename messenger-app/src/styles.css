@@ -1,7 +1,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-body {
-  background: #195cb4;
+.app-color {
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .fw-500 {
@@ -31,8 +33,8 @@ body {
   margin-bottom: 15px;
 }
 
-.search-input:focus {
-  width: 100%;
+.search-input.active {
+  width: 70%;
 }
 
 .form-login{

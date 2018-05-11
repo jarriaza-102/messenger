@@ -1,6 +1,7 @@
 <div class="app-color">
   <div class="row pt-3 ml-4 mr-4">
     <input type="text" placeholder="Search for..." class="search-input mr-auto ml-auto"
+           [ngClass]="{'active': display.state == 'active'}"
            [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChanged($event)">
   </div>
 </div>
