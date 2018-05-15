@@ -97,8 +97,8 @@
       <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/messenger-app/src/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="129" selection-start-line="5" selection-start-column="129" selection-end-line="5" selection-end-column="129" />
+            <state relative-caret-position="578">
+              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <marker date="1526077735299" expanded="true" signature="422:455" ph="{...}" />
               </folding>
@@ -629,12 +629,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525879883925</updated>
-      <workItem from="1525879889836" duration="53611000" />
+      <workItem from="1525879889836" duration="57344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53611000" />
+    <option name="totallyTimeSpent" value="57344000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-48" width="1936" height="1056" extended-state="6" />
@@ -1100,8 +1100,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/messenger-app/src/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="129" selection-start-line="5" selection-start-column="129" selection-end-line="5" selection-end-column="129" />
+        <state relative-caret-position="578">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <marker date="1526077735299" expanded="true" signature="422:455" ph="{...}" />
           </folding>

@@ -5,7 +5,7 @@ const randomstring = require("randomstring");
 const promiseHelper = require('../utils/promiseHelper');
 
 /* Get conversations by User token */
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
 
 	const token = req.get('api-token');
 	const pool = new db.pg.Pool({
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
 
 		userId = response.rows[0].user_id;
 
-		[error, response] = await promiseHelper.handle(client.query('SELECT * from conversation where user_id_1 = $1 OR user_id_2 = $1 ', [userId]));
+		[error, response] = await promiseHelper.handle(client.query('SELECT * from group_users INNER JOIN groups ON group_users.id_group = groups.id where id_user = $1 ', [userId]));
 
 		if (error) {
 			done();
@@ -51,51 +51,6 @@ router.get('/', async (req, res) => {
 	pool.end();
 
 });
-
-
-/* Get conversations messages */
-router.get('/:id/messages', async (req, res) => {
-
-	const conversationId = req.params.id;;
-	const pool = new db.pg.Pool({
-		connectionString: db.connectionString
-	});
-
-	var results = [];
-	pool.connect(async (err, client, done) => {
-
-		const [error, response] = await promiseHelper.handle(client.query('SELECT * from messages where conversation_id = $1 ORDER BY sent_on DESC', [userId]));
-
-		if (error) {
-			done();
-			return res.json(getErrorResponse(errors));
-		}
-
-		results = response.rows;
-		done();
-		return res.json({
-			Data: results,
-			Count: response.rowCount,
-			ErrorMessages: []
-		});
-
-
-	});
-
-	pool.end();
-
-});
-
-
-function getErrorResponse (errors) {
-	return {
-		Data: false,
-		Count: 0,
-		ErrorMessages: [
-			errors
-		]
-	};
-}
 
 
 module.exports = router;

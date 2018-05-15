@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors')
+const db = require('./db/db');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -9,10 +10,9 @@ app.use(cors());
 app.use(require('sanitize').middleware);
 const userRoutes = require('./routes/users');
 const conversationsRoutes = require('./routes/conversations');
+const groupsRoutes = require('./routes/groups');
 
 app.use('/', function (req, res, next) {
-	next();
-		return;
 	if (req.originalUrl === '/users/login') {
 		next();
 		return;
@@ -62,6 +62,7 @@ app.use('/', function (req, res, next) {
 
 app.use('/users', userRoutes);
 app.use('/conversations', conversationsRoutes);
+app.use('/groups', groupsRoutes);
 
 app.get('/', function(req, res){
 	res.sendFile(__dirname + '/index.html');
