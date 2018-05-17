@@ -81,11 +81,17 @@ body {
 }
 
 .conversation-card .message {
-  width: 65%;
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.conversation-card .conversation-person,
+.conversation-card .conversation-message, .conversation-card .actions {
+  margin-top: 1rem;
 }
 
 .conversation-card .actions {
-  width: 20%;
+  width: 15%;
 }
 
 /* COLS */
@@ -93,132 +99,132 @@ body {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 98%;
+  width: 6.3333333333%;
 }
 
 .col-2 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 48%;
+  width: 14.6666666666%;
 }
 
 .col-3 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 31.3333333333%;
+  width: 23%;
 }
 
 .col-4 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 23%;
+  width: 31.3333333332%;
 }
 
 .col-5 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 18%;
+  width: 39.6666666665%;
 }
 
 .col-6 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 14.6666666667%;
+  width: 47.9999999998%;
 }
 
 .col-7 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 12.2857142857%;
+  width: 56.3333333331%;
 }
 
 .col-8 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 10.5%;
+  width: 64.6666666664%;
 }
 
 .col-9 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 9.1111111111%;
+  width: 72.9999999997%;
 }
 
 .col-10 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 8%;
+  width: 81.333333333%;
 }
 
 .col-11 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 7.0909090909%;
+  width: 89.6666666663%;
 }
 
 .col-12 {
   float: left;
   padding-left: 1%;
   padding-right: 1%;
-  width: 6.3333333333%;
+  width: 97.9999999996%;
 }
 
 .col-offset-1 {
-  margin-left: 100%;
+  margin-left: 8.3333333333%;
 }
 
 .col-offset-2 {
-  margin-left: 50%;
+  margin-left: 16.6666666666%;
 }
 
 .col-offset-3 {
-  margin-left: 33.3333333333%;
-}
-
-.col-offset-4 {
   margin-left: 25%;
 }
 
+.col-offset-4 {
+  margin-left: 33.3333333332%;
+}
+
 .col-offset-5 {
-  margin-left: 20%;
+  margin-left: 41.6666666665%;
 }
 
 .col-offset-6 {
-  margin-left: 16.6666666667%;
+  margin-left: 49.9999999998%;
 }
 
 .col-offset-7 {
-  margin-left: 14.2857142857%;
+  margin-left: 58.3333333331%;
 }
 
 .col-offset-8 {
-  margin-left: 12.5%;
+  margin-left: 66.6666666664%;
 }
 
 .col-offset-9 {
-  margin-left: 11.1111111111%;
+  margin-left: 74.9999999997%;
 }
 
 .col-offset-10 {
-  margin-left: 10%;
+  margin-left: 83.333333333%;
 }
 
 .col-offset-11 {
-  margin-left: 9.0909090909%;
+  margin-left: 91.6666666663%;
 }
 
 .col-offset-12 {
-  margin-left: 8.3333333333%;
+  margin-left: 99.9999999996%;
 }
 
 /*# sourceMappingURL=index.css.map */
