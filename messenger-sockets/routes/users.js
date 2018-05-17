@@ -42,35 +42,36 @@ router.get('/', function(req, res) {
 });
 
 /* GET user. */
-router.get('/:id', function(req, res) {
+router.get('/:id', async (req, res) => {
 	const id = req.params.id;
 	const pool = new db.pg.Pool({
 		connectionString: db.connectionString
 	});
 
-	var result = undefined;
-
-	pool.connect((err, client, done) => {
+	pool.connect(async (err, client, done) => {
 
 		if (err) {
 			done();
 			return res.status(500).json(err);
 		}
 
-		const query = client.query(new db.pg.Query('SELECT id, email, full_name from users WHERE id = '  + id));
+		var [error, response] = await promiseHelper.handle(client.query('SELECT id, email, full_name from users WHERE id = '  + id));
 
-		query.on('error', (response) => {
-			done();
-			return res.json(response);
-		});
+		done();
+		if (error) {
+			return res.json({
+				Data: false,
+				Count: 0,
+				ErrorMessages: [
+					error
+				]
+			});
+		}
 
-		query.on('row', (row) => {
-			result = row;
-		});
-
-		query.on('end', () => {
-			done();
-			return res.json(result);
+		return res.json({
+			Data: response.rows[0],
+			Count: 1,
+			ErrorMessages: []
 		});
 
 	});

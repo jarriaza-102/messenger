@@ -1,17 +1,224 @@
+.nav-bar-color {
+  background: #485563 !important;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29323c, #485563) !important;
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29323c, #485563) !important;
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 body {
-    margin: 0px;
+  background: #ECE9E6;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+  margin: 0px;
 }
 
 .container {
-    margin: auto;
-    width: 1000px;
+  margin: auto;
+  width: 1000px;
+}
+
+.container-tabs {
+  margin-top: 25px;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.navigation-bar {
+  height: 80px;
+  margin: auto;
+  width: 100%;
 }
 
 .login-container {
-    margin: auto;
-    width: 767px;
+  margin: auto;
+  width: 767px;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
+
+.search-input {
+  border-radius: 100px;
+  padding: 5px 10px;
+  width: 265px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+/* CONVERSATIONS */
+.conversation-card {
+  min-height: 60px;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 10px 15px;
+}
+
+.conversation-card .actions, .conversation-card .message, .conversation-card .photo {
+  display: inline-flex;
+}
+
+.conversation-card .photo {
+  width: 15%;
+}
+
+.conversation-card .message {
+  width: 65%;
+}
+
+.conversation-card .actions {
+  width: 20%;
+}
+
+/* COLS */
+.col-1 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 98%;
+}
+
+.col-2 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 48%;
+}
+
+.col-3 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 31.3333333333%;
+}
+
+.col-4 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 23%;
+}
+
+.col-5 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 18%;
+}
+
+.col-6 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 14.6666666667%;
+}
+
+.col-7 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 12.2857142857%;
+}
+
+.col-8 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 10.5%;
+}
+
+.col-9 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 9.1111111111%;
+}
+
+.col-10 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 8%;
+}
+
+.col-11 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 7.0909090909%;
+}
+
+.col-12 {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 6.3333333333%;
+}
+
+.col-offset-1 {
+  margin-left: 100%;
+}
+
+.col-offset-2 {
+  margin-left: 50%;
+}
+
+.col-offset-3 {
+  margin-left: 33.3333333333%;
+}
+
+.col-offset-4 {
+  margin-left: 25%;
+}
+
+.col-offset-5 {
+  margin-left: 20%;
+}
+
+.col-offset-6 {
+  margin-left: 16.6666666667%;
+}
+
+.col-offset-7 {
+  margin-left: 14.2857142857%;
+}
+
+.col-offset-8 {
+  margin-left: 12.5%;
+}
+
+.col-offset-9 {
+  margin-left: 11.1111111111%;
+}
+
+.col-offset-10 {
+  margin-left: 10%;
+}
+
+.col-offset-11 {
+  margin-left: 9.0909090909%;
+}
+
+.col-offset-12 {
+  margin-left: 8.3333333333%;
+}
+
+/*# sourceMappingURL=index.css.map */

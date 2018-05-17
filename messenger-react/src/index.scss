@@ -1,0 +1,198 @@
+%top-bg-color {
+  background: #485563 !important;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29323c, #485563) !important;  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29323c, #485563) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+%bg-color {
+  background: #ECE9E6;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+body {
+  @extend %bg-color;
+  margin: 0px;
+}
+
+.container {
+  margin: auto;
+  width: 1000px;
+}
+
+.container-tabs {
+  margin-top: 25px;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.navigation-bar {
+  height: 80px;
+  margin: auto;
+  width: 100%;
+}
+
+.nav-bar-color{
+  @extend %top-bg-color;
+}
+
+.login-container {
+  margin: auto;
+  width: 767px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.search-input {
+  border-radius: 100px;
+  padding: 5px 10px;
+  width: 265px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+}
+
+/* CONVERSATIONS */
+.conversation-card {
+  min-height: 60px;
+  flex-wrap: wrap;
+  display: flex;
+  padding: 10px 15px;
+}
+
+%inline-flex {
+  display: inline-flex;
+}
+
+.conversation-card .photo {
+  @extend %inline-flex;
+  width: 15%;
+}
+
+.conversation-card .message {
+  @extend %inline-flex;
+  width: 65%;
+}
+
+.conversation-card .actions {
+  @extend %inline-flex;
+  width: 20%;
+}
+
+/* COLS */
+@mixin generate-col($col) {
+  float: left;
+  padding-left: 1%;
+  padding-right: 1%;
+  width: (100%/$col) - 2%;
+}
+.col-1 {
+  @include generate-col(1);
+}
+
+.col-2 {
+  @include generate-col(2);
+}
+
+.col-3 {
+  @include generate-col(3);
+}
+
+.col-4 {
+  @include generate-col(4);
+}
+
+.col-5 {
+  @include generate-col(5);
+}
+
+.col-6 {
+  @include generate-col(6);
+}
+
+.col-7 {
+  @include generate-col(7);
+}
+
+.col-8 {
+  @include generate-col(8);
+}
+
+.col-9 {
+  @include generate-col(9);
+}
+
+.col-10 {
+  @include generate-col(10);
+}
+
+.col-11 {
+  @include generate-col(11);
+}
+
+.col-12 {
+  @include generate-col(12);
+}
+
+@mixin generate-offset-col($col) {
+  margin-left: 100% / $col;
+}
+
+.col-offset-1 {
+  @include generate-offset-col(1);
+}
+
+.col-offset-2 {
+  @include generate-offset-col(2);
+}
+
+.col-offset-3 {
+  @include generate-offset-col(3);
+}
+
+.col-offset-4 {
+  @include generate-offset-col(4);
+}
+
+.col-offset-5 {
+  @include generate-offset-col(5);
+}
+
+.col-offset-6 {
+  @include generate-offset-col(6);
+}
+
+.col-offset-7 {
+  @include generate-offset-col(7);
+}
+
+.col-offset-8 {
+  @include generate-offset-col(8);
+}
+
+.col-offset-9 {
+  @include generate-offset-col(9);
+}
+
+.col-offset-10 {
+  @include generate-offset-col(10);
+}
+
+.col-offset-11 {
+  @include generate-offset-col(11);
+}
+
+.col-offset-12 {
+  @include generate-offset-col(12);
+}
