@@ -40,7 +40,7 @@ class Groups extends React.Component {
             <div>
                 <Paper zDepth={2}>
                     {this.state.list.map((element) => {
-                        return <h3>This is a group {element.name}</h3>;
+                        return <h3 key={element.id}>This is a group {element.name}</h3>;
                     })}
                 </Paper>
             </div>

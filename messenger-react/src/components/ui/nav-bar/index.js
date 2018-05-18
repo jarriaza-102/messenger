@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Search from '../../core/search'
+import UserActions from '../../core/user'
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -10,7 +11,13 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="navigation-bar nav-bar-color">
-                <Search />
+                <div className="row vertical-center">
+                    <UserActions />
+                    <div className="col-4">
+                        My Title App
+                    </div>
+                    <Search />
+                </div>
             </div>
         );
     }
