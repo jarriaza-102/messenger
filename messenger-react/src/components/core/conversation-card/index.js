@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import Divider from 'material-ui/Divider';
-import Paper from 'material-ui/Paper';
 
 class ConversationCard extends React.Component {
     constructor(props) {

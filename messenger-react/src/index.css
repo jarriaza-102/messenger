@@ -85,6 +85,10 @@ body {
   width: 70%;
 }
 
+.configuration-card {
+  padding: 20px;
+}
+
 .conversation-card .conversation-person,
 .conversation-card .conversation-message, .conversation-card .actions {
   margin-top: 1rem;

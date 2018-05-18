@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="59068524-7155-4738-abaa-74f0b41496dc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/ormconfig.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/core/filter/http-exception.filter.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/core/guard/auth-token.guard.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/core/middleware/logged-user.middleware.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/user/controller/user.controller.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/user/model/user.entity.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/user/service/user.service.ts" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/messenger-nestjs/src/user/user.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/components/core/conversation-card/index.js" afterPath="$PROJECT_DIR$/messenger-react/src/components/core/conversation-card/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/components/core/search/index.js" afterPath="$PROJECT_DIR$/messenger-react/src/components/core/search/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/components/messenger/configs.js" afterPath="$PROJECT_DIR$/messenger-react/src/components/messenger/configs.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/components/messenger/conversations.js" afterPath="$PROJECT_DIR$/messenger-react/src/components/messenger/conversations.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/components/messenger/groups.js" afterPath="$PROJECT_DIR$/messenger-react/src/components/messenger/groups.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/index.css" afterPath="$PROJECT_DIR$/messenger-react/src/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/index.css.map" afterPath="$PROJECT_DIR$/messenger-react/src/index.css.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/messenger-react/src/index.scss" afterPath="$PROJECT_DIR$/messenger-react/src/index.scss" />
@@ -31,23 +40,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/messenger-react/src/index.scss">
+      <file leaf-file-name="user.controller.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/controller/user.controller.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+            <state relative-caret-position="272">
+              <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#109#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.controller.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/controller/base.controller.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/messenger-react/src/components/core/conversation-card/index.js">
+      <file leaf-file-name="user.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/service/user.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="54" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="67" />
+            <state relative-caret-position="385">
+              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
-                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Repository.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/repository/Repository.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+              <folding>
+                <marker date="1526661805565" expanded="true" signature="1169:1254" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -59,8 +92,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="TypeScript File" />
         <option value="JavaScript File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -75,57 +109,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/messenger-app/src/app/home/messenger.module.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/app.module.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/auth/auth/shared/auth-user.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/shared/search-result.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/shared/shared-clases.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/auth/auth/auth.component.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/auth/auth/shared/auth.service.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/core/helpers/APIHelper.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/shared/messenger-base.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/shared/user.service.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/shared/conversation.service.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/package.json" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/auth/auth/auth.component.html" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/material/material.module.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/auth/auth.module.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/messenger-base.component.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/conversations/conversations.component.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/core/routing/index.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/conversations/conversations.component.html" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/groups/groups.component.html" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/groups/groups.component.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/messenger.module.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/index.html" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/messenger-base.component.html" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/search/search.component.ts" />
-        <option value="$PROJECT_DIR$/messenger-app/src/app/messenger/search/search.component.html" />
-        <option value="$PROJECT_DIR$/messenger-app/src/styles.css" />
-        <option value="$PROJECT_DIR$/messenger-react/src/utils/utils.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/login/login.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-bar.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/navbar.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-tabs/nav-tabs.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-bar/nav-bar.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-tabs/conversations.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-tabs/groups.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/router/non-logged.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/router/logged.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/index.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/router/index.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/messenger/configs.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/messenger/groups.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/dashboard/index.js" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-tabs/index.js" />
         <option value="$PROJECT_DIR$/messenger-react/src/components/ui/container/index.js" />
         <option value="$PROJECT_DIR$/messenger-react/src/components/ui/nav-bar/index.js" />
         <option value="$PROJECT_DIR$/messenger-react/src/index.sass" />
         <option value="$PROJECT_DIR$/messenger-react/src/index.css" />
-        <option value="$PROJECT_DIR$/messenger-react/src/components/messenger/conversations.js" />
         <option value="$PROJECT_DIR$/messenger-react/src/components/core/search/index.js" />
+        <option value="$PROJECT_DIR$/messenger-react/src/components/messenger/conversations.js" />
+        <option value="$PROJECT_DIR$/messenger-react/src/components/messenger/groups.js" />
         <option value="$PROJECT_DIR$/messenger-react/src/components/core/conversation-card/index.js" />
         <option value="$PROJECT_DIR$/messenger-react/src/index.scss" />
+        <option value="$PROJECT_DIR$/messenger-react/src/components/messenger/configs.js" />
+        <option value="$PROJECT_DIR$/messenger-react/src/components/core/configuration-card/index.js" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/services/user.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/app.controller.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/model/user.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/model/photo.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/service/photo.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/db/ormconfig.json" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/db/db.module.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/photo.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/user.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/ormconfig.json" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/photo.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/photo.controller.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/photo.module.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/service/photo.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/user.module.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/controller/user.controller.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/model/user.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/photo/service/user.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/package.json" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/repository/Repository.d.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/token/model.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/token/model/token.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/user.module.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/model/token.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/middleware/log-user.middleware.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/middleware/logged-user.middleware.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/middleware/logged-user.middleware.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/filter/http-exception.filter.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/guard/auth-token.guard.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/app.module.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/main.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/core/guard/auth-token.guard.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/core/model/api-response.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/core/actions/index.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/service/token.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/core/controller/base.controller.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/model/user.entity.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/service/user.service.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/src/user/controller/user.controller.ts" />
+        <option value="$PROJECT_DIR$/messenger-nestjs/.gitignore" />
       </list>
     </option>
   </component>
@@ -172,6 +206,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,165 +235,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="nav-bar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="messenger-react" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="conversation-card" />
+              <option name="myItemId" value="messenger-nestjs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -371,19 +253,19 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-react\src\components\messenger" />
-      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-react\src\components\ui\nav-bar" />
-      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app\messenger" />
-      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app\messenger\messenger-base\shared" />
-      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app\messenger\messenger-base" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-nestjs" />
       <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app\core\shared" />
       <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app\core\helpers" />
       <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\assets\css" />
       <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app\core" />
-      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-app\src\app" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-nestjs\src\core" />
+      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-nestjs\src" />
+      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-nestjs\src\photo\service" />
+      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-nestjs\src\photo\controller" />
+      <recent name="C:\Users\viaro\Documents\lala\messenger\messenger-nestjs\src\photo\model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -468,12 +350,13 @@
       <updated>1525879883925</updated>
       <workItem from="1525879889836" duration="57344000" />
       <workItem from="1526520295329" duration="4363000" />
-      <workItem from="1526568000281" duration="14321000" />
+      <workItem from="1526568000281" duration="32723000" />
+      <workItem from="1526674429659" duration="4587000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76028000" />
+    <option name="totallyTimeSpent" value="99017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-48" width="1936" height="1056" extended-state="6" />
@@ -483,6 +366,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21548998" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -494,7 +378,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -514,389 +397,342 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/messenger-app/node_modules/@angular/common/http/src/client.d.ts" />
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/shared/messenger-base.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/auth/auth/shared/auth-user.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/auth/auth/shared/auth.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/auth/auth/auth.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/shared/user.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="15" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/shared/conversation.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/core/helpers/APIHelper.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="30" column="21" selection-start-line="30" selection-start-column="21" selection-end-line="30" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/material/material.module.ts" />
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/auth/auth.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/node_modules/@angular/animations/src/animation_metadata.d.ts" />
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/groups/groups.component.spec.ts" />
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/app.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/core/routing/index.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/conversations/conversations.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-sockets/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/groups/groups.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/groups/groups.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/messenger.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/auth/auth/auth.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/search/search.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/search/search.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#59#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/utils/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="51" selection-start-line="1" selection-start-column="51" selection-end-line="1" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/node_modules/material-ui/svg-icons/navigation/menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/node_modules/material-ui/styles/colors.js">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/model/tsconfig.json" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/model/photo.entity.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/service/photo.service.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/@types/node/index.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
-          <caret line="99" column="46" selection-start-line="99" selection-start-column="46" selection-end-line="99" selection-end-column="46" />
-          <folding />
+          <caret line="188" column="30" selection-start-line="188" selection-start-column="30" selection-end-line="188" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/router/non-logged.js">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="298">
+          <caret line="1558" column="10" selection-start-line="1558" selection-start-column="10" selection-end-line="1558" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/login/index.js">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/@nestjs/typeorm/dist/typeorm.decorators.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/common/ObjectLiteral.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/db/db.module.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/photo/model/user.entity.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/photo/controller/user.controller.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/photo/user.module.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/photo/service/user.service.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/decorator/entity/Entity.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/ormconfig.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/node_modules/material-ui/svg-icons/social/people.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/node_modules/material-ui/svg-icons/action/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/messenger/groups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="12" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/messenger/configs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/router/logged.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/ui/container/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/router/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/ui/nav-tabs/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1702">
-          <caret line="113" column="1" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/dashboard/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/messenger-base.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/messenger-base/messenger-base.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-app/src/app/messenger/conversations/conversations.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="35" column="6" selection-start-line="13" selection-start-column="25" selection-end-line="35" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/ui/nav-bar/index.js">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/driver/postgres/PostgresConnectionOptions.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+          <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/core/search/index.js">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/connection/ConnectionOptions.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="102">
+          <caret line="14" column="72" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/messenger/conversations.js">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/@nestjs/typeorm/dist/typeorm.module.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/components/core/conversation-card/index.js">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/repository/SaveOptions.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="54" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="67" />
+          <caret line="19" column="7" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-sockets/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/find-options/FindConditions.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/find-options/FindOneOptions.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/token/model.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/token/model/token.entity.ts" />
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/decorator/columns/PrimaryGeneratedColumn.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/decorator/columns/Column.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/user.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/messenger-react/src/index.scss">
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/decorator/options/ColumnOptions.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        <state relative-caret-position="198">
+          <caret line="82" column="7" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/@nestjs/common/interfaces/middleware/middleware-config-proxy.interface.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-sockets/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="742">
+          <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/middleware/logged-user.middleware.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#90#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/@nestjs/common/exceptions/http.exception.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#72#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/main.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="55" selection-start-line="2" selection-start-column="55" selection-end-line="2" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/filter/http-exception.filter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/guard/auth-token.guard.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#75#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/model/api-response.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-sockets/db/db.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="70" selection-start-line="2" selection-start-column="62" selection-end-line="2" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-sockets/utils/promiseHelper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-sockets/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/model/token.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/actions/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="31" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/find-options/FindManyOptions.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/node_modules/typeorm/repository/Repository.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="40" column="7" selection-start-line="40" selection-start-column="7" selection-end-line="40" selection-end-column="7" />
+          <folding>
+            <marker date="1526661805565" expanded="true" signature="1169:1254" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/model/user.entity.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/service/token.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/service/user.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/core/controller/base.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-sockets/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/messenger-nestjs/src/user/controller/user.controller.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#109#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
