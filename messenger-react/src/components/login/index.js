@@ -3,13 +3,16 @@ import { render } from 'react-dom';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {isNullOrUndefined} from '../../utils/utils';
+import {login, loadUsers} from '../../actions/userActions'
+import Error from '../error'
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errorMessages: []
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,10 +22,19 @@ class Login extends React.Component {
         this.setState({[event.target.id]: event.target.value})
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         if (!this.isValid()) return;
         console.log('submit');
+        const lala = await loadUsers();
+        console.log(lala);
+        const user = await login(this.state.email, this.state.password);
+        console.log(user);
+        if (!user.data) {
+            this.setState({ errorMessages: user.errors });
+            return;
+        }
+        console.log('correctly');
     }
 
     isValid() {
@@ -32,6 +44,7 @@ class Login extends React.Component {
     render() {
         return (
             <div className="login-container">
+                <Error errors={this.state.errorMessages}/>
                 <form onSubmit={this.handleSubmit}>
                     <TextField
                         id="email"
