@@ -4,6 +4,10 @@ export class Actions {
         return '\'' + param + '\'';
     }
 
+    static likeSupport(param: string) : string {
+        return 'UPPER(\'' + param + '%\')';
+    }
+
     static generateRandomString() {
         const randomString = require("randomstring");
         return randomString.generate();

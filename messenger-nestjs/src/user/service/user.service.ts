@@ -39,6 +39,15 @@ export class UserService {
         });
     }
 
+    async search(fullName: string) : Promise<User[]> {
+        const users = await this.userRepository.find({
+            where: 'UPPER(full_name) LIKE ' + Actions.likeSupport(fullName)
+        });
+        return users.map((user) => {
+            return (new User()).setData(user);
+        });
+    }
+
     async findOne(id: number) : Promise<User> {
         return await this.userRepository.findOne(id);
     }

@@ -1,11 +1,10 @@
-/**
- * Created by viaro on 5/22/2018.
- */
 import {combineReducers} from 'redux';
-import users from './userReducer';
+import {authentication} from './authReducer';
+import {user} from './userReducer';
 
 const rootReducer = combineReducers({
-    users
+    authentication,
+    user
 });
 
 export default rootReducer;

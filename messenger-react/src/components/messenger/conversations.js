@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {connect} from 'react-redux';
-import * as userActions from '../../actions/userActions';
 
 import Paper from 'material-ui/Paper';
 import ConversationCard from '../core/conversation-card';

@@ -14,7 +14,7 @@ export class AuthTokenGuard implements CanActivate {
         if (request.originalUrl === '/users/login') {
             return true;
         }
-        const apiToken = request.get('api-token');
+        const apiToken = request.get('Authorization-Token');
         if (apiToken === undefined) {
             return false;
         }

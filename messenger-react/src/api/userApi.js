@@ -1,16 +1,15 @@
-import axios from 'axios';
-import {API_URL} from '../utils/utils'
+import {axiosHelper} from '../utils/axiosHelper'
 
-const url = 'users';
+const resource = 'users';
 
 class UserApi {
 
-    static async getAllUsers() {
-        return axios.get(API_URL + url);
+    static async login(user) {
+        return await axiosHelper.postRequest( resource + '/login', user);
     }
 
-    static async login(user) {
-        return await axios.post(API_URL + url + '/login', user);
+    static async search(user) {
+        return await axiosHelper.postRequest( resource + '/search', user);
     }
 }
 

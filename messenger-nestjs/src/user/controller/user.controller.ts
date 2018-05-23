@@ -16,7 +16,7 @@ export class UserController extends BaseController {
     @Get()
     async findAll() {
         const users = await this.userService.findAll();
-        return this.createSuccessResponse(users, users.length);
+        return this.createArrSuccessResponse(users, users.length);
     }
 
     @Get(':id')
@@ -30,9 +30,17 @@ export class UserController extends BaseController {
         return this.createSuccessResponse(await this.userService.create(user));
     }
 
+    @Post('search')
+    async search(@Body() user: User) {
+        const users = await this.userService.search(user.fullName);
+        return this.createArrSuccessResponse(users, users.length);
+    }
+
     @Post('login')
     async login(@Body() user: User) {
+        console.log(user);
         user = await this.userService.login(user);
+        console.log(user);
         if (user === undefined) {
             return this.createErrorResponse('User does not exist');
         }

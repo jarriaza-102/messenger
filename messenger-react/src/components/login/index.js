@@ -3,8 +3,12 @@ import { render } from 'react-dom';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {isNullOrUndefined} from '../../utils/utils';
-import {login, loadUsers} from '../../actions/userActions'
+import {login} from '../../actions/userActions'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import Error from '../error'
+import {logUser} from '../../utils/authUser'
 
 class Login extends React.Component {
     constructor(props) {
@@ -12,7 +16,8 @@ class Login extends React.Component {
         this.state = {
             email: '',
             password: '',
-            errorMessages: []
+            errorMessages: [],
+            isLoggedUser: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,16 +30,13 @@ class Login extends React.Component {
     async handleSubmit(event) {
         event.preventDefault();
         if (!this.isValid()) return;
-        console.log('submit');
-        const lala = await loadUsers();
-        console.log(lala);
-        const user = await login(this.state.email, this.state.password);
-        console.log(user);
-        if (!user.data) {
-            this.setState({ errorMessages: user.errors });
+        const response = await this.props.dispatch(login(this.state.email, this.state.password));
+        if (!response.data) {
+            this.setState({ errorMessages: response.errors });
             return;
         }
-        console.log('correctly');
+        logUser(response.data);
+        this.setState({ isLoggedUser: true });
     }
 
     isValid() {
@@ -42,9 +44,18 @@ class Login extends React.Component {
     }
 
     render() {
+        if (this.state.isLoggedUser) {
+            return (
+                <Redirect to={{
+                    pathname: "/dashboard"
+                }} />
+            );
+        }
         return (
             <div className="login-container">
-                <Error errors={this.state.errorMessages}/>
+                {this.state.errorMessages.map( (error) => {
+                    return <Error error={error.error} key={error.index}/>;
+                })}
                 <form onSubmit={this.handleSubmit}>
                     <TextField
                         id="email"
@@ -71,4 +82,9 @@ class Login extends React.Component {
     };
 }
 
-export default Login;
+function mapStateToProps(state) {
+    return state.authentication;
+}
+
+
+export default withRouter(connect(mapStateToProps)(Login));

@@ -9,9 +9,9 @@ class Error extends React.Component {
     render () {
 
         return (
-            <div>
-                <h2>Errors</h2>
-            </div>
+            <h2>
+                {this.props.error}
+            </h2>
         );
     }
 }

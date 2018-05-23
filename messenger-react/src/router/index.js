@@ -1,29 +1,28 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Logged from './logged';
-import NonLogged from './non-logged';
-import {isLoggedUser} from '../utils/utils'
+import {connect} from 'react-redux';
+import { BrowserRouter } from "react-router-dom";
+import Login from '../components/login';
+import Dashboard from '../components/dashboard';
+import PrivateRoute from './privateRoute';
+import PublicRoute from './publicRoute';
+import DefaultRoute from './defaultRoute';
 
 class Router extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            isLoggedUser: isLoggedUser()
-        };
     }
 
     render() {
-        if (!this.state.isLoggedUser) {
-            return (
-                <NonLogged />
-            );
-        }
-
         return (
-            <Logged />
+            <BrowserRouter>
+                <div>
+                    <PublicRoute path="/login" component={Login} />
+                    <PrivateRoute path="/dashboard" component={Dashboard} />
+                </div>
+            </BrowserRouter>
         );
     }
 }
 
-export default Router;
+export default connect()(Router);

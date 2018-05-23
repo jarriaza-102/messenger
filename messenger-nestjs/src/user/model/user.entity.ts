@@ -17,6 +17,7 @@ export class User {
     password: string;
 
     setData(user : User) {
+        this.id = user.id;
         this.email = user.email;
         this.fullName = user.fullName;
         return this;

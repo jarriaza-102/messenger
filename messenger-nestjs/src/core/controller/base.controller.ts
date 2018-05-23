@@ -9,8 +9,8 @@ export class BaseController {
         return this.getResponse(false, 0, [ error ]);
     }
 
-    createSuccessResponse(data, count: number) {
-        return this.getResponse(count, count, []);
+    createArrSuccessResponse(data, count: number) {
+        return this.getResponse(data, count, []);
     }
 
     createSuccessResponse(data) {
@@ -21,7 +21,8 @@ export class BaseController {
         const apiResponse = new APIResponse();
         apiResponse.data = data;
         apiResponse.count = count;
-        apiResponse.errors = errors;
+        var i=0;
+        apiResponse.errors = errors.map( (error) => { const response = { error: error, index: i }; i++; return response; });
         return apiResponse;
     }
 
