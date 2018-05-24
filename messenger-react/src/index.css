@@ -90,7 +90,8 @@ body {
 }
 
 .configuration-card {
-  padding: 20px;
+  cursor: pointer;
+  padding: 15px;
 }
 
 .conversation-card .conversation-person,
@@ -250,8 +251,16 @@ body {
   float: right;
 }
 
-.expand-arrow {
-  padding-right: 10px;
+.expand-arrow > svg {
+  vertical-align: middle;
+}
+
+.pull-none {
+  float: none;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .pull-left {
@@ -263,9 +272,13 @@ body {
 }
 
 .search-container {
-  height: 70px;
+  min-height: 70px;
   clear: both;
   z-index: 2;
+}
+
+.search-result-expand.active {
+  padding: 15px;
 }
 
 .search-result-expand {
@@ -273,6 +286,23 @@ body {
   margin-bottom: 1px;
   color: rgba(0, 0, 0, 0.87);
   background-color: rgb(255, 255, 255);
-  padding-top: 3px;
-  padding-bottom: 3px;
+}
+
+.clear-both {
+  clear: both;
+}
+
+.preview .user-photo {
+  width: 75px;
+  height: 75px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.preview .separator {
+  margin-bottom: 10px;
+}
+
+.separator.bordered{
+  border-bottom: 1px solid lightgray;
 }

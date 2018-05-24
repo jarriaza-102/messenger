@@ -24,6 +24,12 @@ export class TokenService {
         });
     }
 
+    async logout(authToken: string) : Promise<Token> {
+        const token = await this.findByToken(authToken);
+        await this.tokenRepository.remove(token);
+        return true;
+    }
+
     async save(userId: number) : Promise<Token> {
         const hash = Actions.generateRandomString();
         const token = new Token();

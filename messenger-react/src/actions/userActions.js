@@ -29,6 +29,16 @@ export function search(param) {
     };
 }
 
+export function logout() {
+    return dispatch => {
+        return new Promise(async (resolve, reject) => {
+            const response = await userApi.logout();
+            dispatch(success(userConstants.LOGOUT, response.data));
+            resolve(response);
+        });
+    };
+}
+
 function request(type, data) { return { type: type, data } }
 function success(type, data) { return { type: type, data } }
 function failure(type, errors) { return { type: type, errors } }

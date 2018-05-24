@@ -25,6 +25,11 @@ export class UserController extends BaseController {
         return this.createSuccessResponse(user);
     }
 
+    @Post('logout')
+    async logout(@Req() req) {
+        return this.createSuccessResponse(await this.userService.logout(req.get('Authorization-Token')));
+    }
+
     @Post()
     async create(@Body() user: User) {
         return this.createSuccessResponse(await this.userService.create(user));
@@ -64,7 +69,7 @@ export class UserController extends BaseController {
     }
 
     async validate(req, id) {
-        const user = await this.userService.findByToken(req.get('api-token'));
+        const user = await this.userService.findByToken(req.get('Authorization-Token'));
         if (user.id != id) {
             throw new HttpException('User does not match', HttpStatus.INTERNAL_SERVER_ERROR);
         }

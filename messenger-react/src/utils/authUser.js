@@ -21,3 +21,7 @@ export function authHeader() {
 export function getLoggedUser() {
     return JSON.parse(localStorage.getItem('auth-user'));
 }
+
+export function logoutAuthUser() {
+    localStorage.removeItem('auth-user');
+}

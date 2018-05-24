@@ -11,6 +11,10 @@ class UserApi {
     static async search(user) {
         return await axiosHelper.postRequest( resource + '/search', user);
     }
+
+    static async logout() {
+        return await axiosHelper.postRequest( resource + '/logout');
+    }
 }
 
 export default UserApi;

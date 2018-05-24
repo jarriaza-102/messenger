@@ -49,19 +49,29 @@ export class UserService {
     }
 
     async findOne(id: number) : Promise<User> {
-        return await this.userRepository.findOne(id);
+        const user = await this.userRepository.findOne(id);
+        if (user.photo === null) user.photo = 'default.jpg';
+        return user;
+    }
+
+    async logout(token: string) {
+        return await this.tokenService.logout(token);
     }
 
     async create(user: User) : Promise<User> {
-        return await this.userRepository.save(user);
+        const user = await this.userRepository.save(user);
+        if (user.photo === null) user.photo = 'default.jpg';
+        return user;
     }
 
     async update(user: User) : Promise<User> {
-        return await this.userRepository.save(user);
+        const user = await this.userRepository.save(user);
+        user.photo = 'default.jpg';
+        return user;
     }
 
     async remove(user: User) : Promise<User> {
-        return await this.userRepository.remove(user);
+        return await this.userRepository.remove(user);;
     }
 
 }
