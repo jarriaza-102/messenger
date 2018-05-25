@@ -12,6 +12,7 @@ import Chip from 'material-ui/Chip';
 import {isNullOrUndefined} from '../../../utils/utils';
 import { connect } from 'react-redux';
 import {send} from '../../../actions/messageActions';
+import {getLoggedUser} from '../../../utils/authUser';
 
 class UserPreview extends React.Component {
     constructor(props) {
@@ -129,6 +130,20 @@ class UserPreview extends React.Component {
             );
         }
 
+        const actions = [
+            <div className="col-2 pull-none inline-block"><IconButton tooltip="View Profile" onClick={this.viewUserProfile}>
+                <SocialPerson /></IconButton></div>
+        ];
+        if (this.props.user.id != getLoggedUser().user.id) {
+            actions.push(<div className="col-2 pull-none inline-block"><IconButton tooltip="Send Message" onClick={this.sendMessage}>
+                        <CommunicationMessage /></IconButton></div>
+            );
+            actions.push(<div className="col-2 pull-none inline-block"><IconButton tooltip="A Pistear" onClick={this.requestPeda}>
+                        <PlacesSmokingRooms /></IconButton></div>
+            );
+        }
+        actions.push(<IconButton tooltip="Share" onClick={this.share}><SocialShare /></IconButton>);
+
         return (
             <div>
                 <div className="preview">
@@ -138,31 +153,9 @@ class UserPreview extends React.Component {
                             <div className="clear-both"></div>
                         </div>
                     </div>
-                    <div className="col-12 text-center user-name separator">
-                        <span className="cursor-pointer"
-                              onClick={this.viewUserProfile}>{this.props.user.fullName}</span>
-                    </div>
+
                     <div className="col-12 text-center">
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="View Profile" onClick={this.viewUserProfile}>
-                                <SocialPerson />
-                            </IconButton>
-                        </div>
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="Send Message" onClick={this.sendMessage}>
-                                <CommunicationMessage />
-                            </IconButton>
-                        </div>
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="A Pistear" onClick={this.requestPeda}>
-                                <PlacesSmokingRooms />
-                            </IconButton>
-                        </div>
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="Share" onClick={this.share}>
-                                <SocialShare />
-                            </IconButton>
-                        </div>
+                        {actions}
                     </div>
                     <div className="clear-both"></div>
                 </div>
