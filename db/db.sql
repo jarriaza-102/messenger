@@ -57,6 +57,8 @@ CREATE TABLE "conversation" (
 CREATE TABLE "conversation_users" (
  conversation_id INT NOT NULL,
  user_id INT NOT NULL,
+ "name" VARCHAR(300) NOT NULL,
+ creation_date timestamp NOT NULL,
  status INT NOT NULL,
  PRIMARY KEY(conversation_id, user_id),
  FOREIGN KEY (conversation_id) REFERENCES conversation(id),

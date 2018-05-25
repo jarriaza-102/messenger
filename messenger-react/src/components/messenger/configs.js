@@ -50,12 +50,6 @@ class Configs extends React.Component {
                            return <ConfigurationCard updateParent={() => this.setState({updateParent: true})} config={config} key={config.id}/>;
                         })}
                         <Divider />
-                        <div onClick={this.logout}>
-                            <div className="configuration-card">
-                                <span>Logout</span>
-                            </div>
-                            <Divider />
-                        </div>
                     </div>
                 </Paper>
             </div>

@@ -20,9 +20,7 @@ export class ConversationService {
     }
 
     async findAllByUser(userId: number, paging: Paging) : Promise<Conversation[]> {
-        return await this.conversationRepository.find({
-            where: 'user_id_1 = ' + userId + ' OR user_id_1 = ' + userId
-        });
+        return await this.conversationRepository.query('SELECT * FROM get_conversations_by_user('+userId+')');
     }
 
     async create(conversation: Conversation) : Promise<Conversation> {

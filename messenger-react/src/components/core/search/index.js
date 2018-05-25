@@ -38,7 +38,7 @@ class Search extends React.Component {
 
     handleClickOutside(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-            this.clearResults();
+            //this.clearResults();
         }
     }
 

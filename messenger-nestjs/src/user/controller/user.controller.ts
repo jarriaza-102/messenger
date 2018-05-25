@@ -4,6 +4,7 @@ import {UserService} from "../service/user.service";
 import {AuthTokenGuard} from "../../core/guard/auth-token.guard";
 import { HttpException } from '@nestjs/common';
 import {BaseController} from "../../core/controller/base.controller";
+import {Actions} from "../../core/actions/index";
 
 @Controller('users')
 @UseGuards(AuthTokenGuard)
@@ -27,7 +28,7 @@ export class UserController extends BaseController {
 
     @Post('logout')
     async logout(@Req() req) {
-        return this.createSuccessResponse(await this.userService.logout(req.get('Authorization-Token')));
+        return this.createSuccessResponse(await this.userService.logout(req.get(Actions.getAuthTokenHeaderName())));
     }
 
     @Post()
@@ -69,7 +70,7 @@ export class UserController extends BaseController {
     }
 
     async validate(req, id) {
-        const user = await this.userService.findByToken(req.get('Authorization-Token'));
+        const user = await this.userService.findByToken(req.get(Actions.getAuthTokenHeaderName()));
         if (user.id != id) {
             throw new HttpException('User does not match', HttpStatus.INTERNAL_SERVER_ERROR);
         }

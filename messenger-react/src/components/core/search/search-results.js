@@ -4,11 +4,8 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import NavigationExpandMore from 'material-ui/svg-icons/navigation/expand-more';
 import NavigationExpandLess from 'material-ui/svg-icons/navigation/expand-less';
-import CommunicationMessage from 'material-ui/svg-icons/communication/message';
-import PlacesSmokingRooms from 'material-ui/svg-icons/places/smoking-rooms';
-import SocialPerson from 'material-ui/svg-icons/social/person';
-import SocialShare from 'material-ui/svg-icons/social/share';
-import IconButton from 'material-ui/IconButton';
+import Avatar from 'material-ui/Avatar';
+import UserPreview from './userPreview';
 
 class SearchResults extends React.Component {
     constructor(props) {
@@ -17,9 +14,9 @@ class SearchResults extends React.Component {
             expandUserId: 0
         };
         this.getSearchOptions = this.getSearchOptions.bind(this);
-        this.onClick = this.onClick.bind(this);
-        this.getUserCard = this.getUserCard.bind(this);
+        this.expandUserCard = this.expandUserCard.bind(this);
         this.getExpandIcon = this.getExpandIcon.bind(this);
+        this.getUserPhoto = this.getUserPhoto.bind(this);
     }
 
     getSearchOptions() {
@@ -40,65 +37,21 @@ class SearchResults extends React.Component {
         );
     }
 
-    onClick(id) {
+    expandUserCard(id) {
         if (this.state.expandUserId === id) id = 0;
         this.setState({
             expandUserId: id
         });
     }
 
-    getUserCard(user) {
-        if (this.state.expandUserId !== user.id) {
-            return (
-                <div>
-                    <div className="col-3">
-                        Photo
-                    </div>
-                    <div className="col-9">
-                        <div className="text-left">
-                            {user.fullName}
-                        </div>
-                    </div>
-                </div>
-            );
+    getUserPhoto(user, size) {
+        if (user.photo === 'default') {
+            let name = user.fullName.split(' ');
+            name = name[0].substr(0, 1) + name[1].substr(0, 1);
+            return <Avatar style={{width: size, height: size}}>{name}</Avatar>;
         }
-        return (
-            <div>
-                <div className="preview">
-                    <div className="col-12 text-center separator bordered">
-                        <div className="user-photo">
-                            Photo
-                        </div>
-                    </div>
-                    <div className="col-12 text-center user-name separator">
-                        {user.fullName}
-                    </div>
-                    <div className="col-12 text-center">
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="View Profile">
-                                <SocialPerson />
-                            </IconButton>
-                        </div>
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="Send Message">
-                                <CommunicationMessage />
-                            </IconButton>
-                        </div>
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="A Pistear">
-                                <PlacesSmokingRooms />
-                            </IconButton>
-                        </div>
-                        <div className="col-2 pull-none inline-block">
-                            <IconButton tooltip="Share">
-                                <SocialShare />
-                            </IconButton>
-                        </div>
-                    </div>
-                    <div className="clear-both"></div>
-                </div>
-            </div>
-        );
+
+        return <img src={user.photo} className="avatar" />
     }
 
     getExpandIcon(id) {
@@ -115,13 +68,13 @@ class SearchResults extends React.Component {
                     return (
                         <div className="search-container" key={user.id}>
                             <Paper zDepth={2} style={getStyle(true)}>
-                                {this.getUserCard(user)}
+                                <UserPreview getUserPhoto={this.getUserPhoto} user={user} expandUserId={this.state.expandUserId}/>
                             </Paper>
                             <RaisedButton
                                 fullWidth={true}
                                 icon={<div className="expand-arrow">{this.getExpandIcon(user.id)}</div>}
                                 className="text-center search-result-expand"
-                                onClick={() => this.onClick(user.id)}
+                                onClick={() => this.expandUserCard(user.id)}
                             />
                         </div>
                     );

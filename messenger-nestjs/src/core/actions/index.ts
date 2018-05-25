@@ -13,4 +13,8 @@ export class Actions {
         return randomString.generate();
     }
 
+    static getAuthTokenHeaderName() {
+        return 'Authorization-Token';
+    }
+
 }

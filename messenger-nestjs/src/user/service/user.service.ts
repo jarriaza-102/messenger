@@ -41,7 +41,7 @@ export class UserService {
 
     async search(fullName: string) : Promise<User[]> {
         const users = await this.userRepository.find({
-            where: 'UPPER(full_name) LIKE ' + Actions.likeSupport(fullName)
+            where: 'UPPER("fullName") LIKE ' + Actions.likeSupport(fullName)
         });
         return users.map((user) => {
             return (new User()).setData(user);
@@ -50,7 +50,7 @@ export class UserService {
 
     async findOne(id: number) : Promise<User> {
         const user = await this.userRepository.findOne(id);
-        if (user.photo === null) user.photo = 'default.jpg';
+        if (user.photo === null) user.photo = 'default';
         return user;
     }
 
@@ -60,13 +60,13 @@ export class UserService {
 
     async create(user: User) : Promise<User> {
         const user = await this.userRepository.save(user);
-        if (user.photo === null) user.photo = 'default.jpg';
+        if (user.photo === null) user.photo = 'default';
         return user;
     }
 
     async update(user: User) : Promise<User> {
         const user = await this.userRepository.save(user);
-        user.photo = 'default.jpg';
+        user.photo = 'default';
         return user;
     }
 

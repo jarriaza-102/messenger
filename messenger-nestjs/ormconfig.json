@@ -4,7 +4,7 @@
   "port": 5433,
   "username": "postgres",
   "password": "",
-  "database": "messenger",
+  "database": "ja_chat",
   "entities": ["src/**/model/**.entity{.ts,.js}"],
   "synchronize": true
 }

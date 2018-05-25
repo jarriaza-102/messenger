@@ -1,6 +1,7 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import {TokenService} from "../../user/service/token.service";
+import {Actions} from "../actions/index";
 
 @Injectable()
 export class AuthTokenGuard implements CanActivate {
@@ -14,7 +15,7 @@ export class AuthTokenGuard implements CanActivate {
         if (request.originalUrl === '/users/login') {
             return true;
         }
-        const apiToken = request.get('Authorization-Token');
+        const apiToken = request.get(Actions.getAuthTokenHeaderName());
         if (apiToken === undefined) {
             return false;
         }

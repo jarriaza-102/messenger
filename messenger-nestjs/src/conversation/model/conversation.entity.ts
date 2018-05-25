@@ -5,19 +5,28 @@ export class Conversation {
     @PrimaryGeneratedColumn()
     id:number;
 
-    @Column({
-        name: 'user_id_1'
-    })
-    userId1: number;
+    @Column()
+    name: string;
+
+    @Column()
+    owner: number;
+
+    @Column()
+    creationDate: number;
+
+    @Column()
+    conversationType: number;
+
+    @Column()
+    statusId: number;
 
     @Column({
-        name: 'user_id_2'
+        nullable: true
     })
-    userId2: number;
+    isGroupConversation: boolean;
 
-    /*@Column({
-        name: 'creation_date'
+    @Column({
+        nullable: true
     })
-    creationDate: any;*/
-
+    slave: number;
 }

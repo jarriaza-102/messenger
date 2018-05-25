@@ -2,11 +2,17 @@ import { NestModule, Module, MiddlewareConsumer } from '@nestjs/common';
 import {UserModule} from "./user/user.module";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {LoggedUserMiddleware} from "./core/middleware/logged-user.middleware";
+import {UserKeyModule} from "./user-key/user-key.module";
+import {ConversationModule} from "./conversation/conversation.module";
+import {MessageModule} from "./message/message.module";
 
 @Module({
     imports: [
         TypeOrmModule.forRoot(),
-        UserModule
+        UserModule,
+        UserKeyModule,
+        ConversationModule,
+        MessageModule
     ],
   controllers: [],
   providers: []

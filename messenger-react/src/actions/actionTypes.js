@@ -9,6 +9,18 @@ export const userConstants = {
     LOGOUT: 'USERS_LOGOUT',
 };
 
+export const conversationConstants = {
+    CONVERSATION_REQUEST: 'CONVERSATION_REQUEST',
+    CONVERSATION_SUCCESS: 'CONVERSATION_SUCCESS',
+    CONVERSATION_FAILURE: 'CONVERSATION_FAILURE',
+};
+
+export const messageConstants = {
+    MESSAGE_REQUEST: 'MESSAGE_REQUEST',
+    MESSAGE_SUCCESS: 'MESSAGE_SUCCESS',
+    MESSAGE_FAILURE: 'MESSAGE_FAILURE',
+};
+
 export const httpStatus = {
     PROCESSING: 1,
     SUCCESS: 2,
