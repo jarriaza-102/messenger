@@ -8,16 +8,23 @@ class ConversationCard extends React.Component {
     constructor(props) {
         super(props);
         this.getUserPhoto = this.getUserPhoto.bind(this);
+        this.getConversation = this.getConversation.bind(this);
     }
 
     getUserPhoto() {
+        const size = (this.props.selected > 0 ) ? "50px" : "75px";
         if (this.props.conversation.photo === 'default') {
             let name = this.props.conversation.sender.split(' ');
             name = name[0].substr(0, 1) + name[1].substr(0, 1);
-            return <Avatar style={{width: "75px", height: "75px"}}>{name}</Avatar>;
+            return <Avatar style={{width: size, height: size}}>{name}</Avatar>;
         }
 
         return <img src={this.props.conversation.photo} className="avatar" />
+    }
+
+    getConversation() {
+        this.props.updateConversations(this.props.conversation.id);
+        console.log(this.props.conversation);
     }
 
     render() {
@@ -27,7 +34,7 @@ class ConversationCard extends React.Component {
         }
         return (
             <div>
-                <div className="conversation-card">
+                <div className="conversation-card" onClick={this.getConversation}>
                     <div className="photo">
                         {this.getUserPhoto()}
                     </div>

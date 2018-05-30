@@ -1,6 +1,6 @@
 ﻿CREATE OR REPLACE FUNCTION get_conversations_by_user(user_id_ INT) 
     RETURNS table 
-	(id INT , "owner" INT, conversationType INT, "name" VARCHAR,message VARCHAR, sender VARCHAR, senderid INT, photo VARCHAR) 
+	(id INT , "owner" INT, conversationType INT, "name" VARCHAR,message VARCHAR, sender VARCHAR, senderid INT, slaveuser VARCHAR, photo VARCHAR) 
     AS
     $BODY$
 	SELECT "conversation"."id" , "conversation"."owner", "conversation"."conversationType", "conversation"."name",
@@ -40,7 +40,8 @@
 		(SELECT "user"."photo" FROM "message" 
 			INNER JOIN "user" ON "message"."userId" = "user"."id"
 			WHERE "conversationId" = "conversation"."id"
-			ORDER BY "message"."id" DESC LIMIT 1)  as "photo"
+			AND "user"."id" != user_id_
+			ORDER BY "message"."id" DESC LIMIT 1) as "photo"
 			
 		FROM "conversation" 
 		INNER JOIN "conversation_users" ON "conversation"."id" = "conversation_users"."conversation_id"	

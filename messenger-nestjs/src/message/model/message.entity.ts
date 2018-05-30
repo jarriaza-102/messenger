@@ -23,5 +23,10 @@ export class Message {
     })
     answerId: number;
 
+    @Column({
+        nullable: true
+    })
+    sentDate: string;
+
     slave: number;
 }

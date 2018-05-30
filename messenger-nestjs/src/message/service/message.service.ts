@@ -13,9 +13,7 @@ export class MessageService {
     ) {}
 
     async findAllByConversationId(conversationId: number) {
-        return await this.messageRepository.findAll({
-            where:'"conversation_id" = ' + conversationId
-        });
+        return await this.messageRepository.query('select * from get_conversation_messages('+conversationId+')');
     }
 
     async create (message: Message) {

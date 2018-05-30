@@ -22,6 +22,7 @@ body {
 
 .container-tabs {
   margin-top: 25px;
+  margin-bottom: 100px;
 }
 
 .color-white {
@@ -153,6 +154,23 @@ body {
   border-bottom: 1px solid lightgray;
 }
 
+%border-top {
+  border-top: 1px solid lightgray;
+}
+%border-left {
+  border-left: 1px solid lightgray;
+}
+%border-right {
+  border-right: 1px solid lightgray;
+}
+
+%border {
+  @extend %border-top;
+  @extend %border-bottom;
+  @extend %border-left;
+  @extend %border-right;
+}
+
 .preview .user-name span:hover {
   @extend %border-bottom;
 }
@@ -210,6 +228,107 @@ body {
 .conversation-card .conversation-person,
 .conversation-card .conversation-message{
   @extend %conversation-card-mt;
+}
+
+%conversation-card-selected-mt {
+  margin-top: 1rem;
+}
+
+.conversation-card-selected .conversation-card .actions {
+  @extend %conversation-card-selected-mt;
+}
+
+.conversation-card-selected .conversation-card .conversation-person,
+.conversation-card-selected .conversation-card .conversation-message{
+  @extend %conversation-card-selected-mt;
+}
+
+/* Conversation selected */
+
+%container-conversation-selected-color {
+  background: #ADA996;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container-conversation-selected {
+  @extend %container-conversation-selected-color;
+  @extend %border-top;
+  @extend %border-left;
+  @extend %border-bottom;
+  height: 500px;
+}
+
+.conversation-card-selected {
+  display: inline-block;
+  width: 25%;
+}
+
+.conversation-view {
+  @extend %border-left;
+  background: white;
+  width: calc(75% - 2px);
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+%conversation-view-padding {
+  padding: 10px 15px;
+}
+
+.conversation-view .title {
+  @extend %border;
+  @extend %conversation-view-padding;
+}
+
+.conversation-view .body {
+  @extend %conversation-view-padding;
+  height: 350px;
+}
+
+.conversation-view .footer {
+  @extend %conversation-view-padding;
+  height: 70px;
+}
+
+%message-single{
+  padding: 15px 10px;
+  width: 65%;
+}
+
+.message-right {
+  @extend %message-single;
+  text-align: right;
+  margin-left: auto;
+}
+
+.message-left {
+  @extend %message-single;
+  text-align: left;
+  margin-right: auto;
+}
+
+.conversation-view .title {
+  @extend %border;
+  padding: 15px;
+}
+
+.conversation-card-selected .conversation-card {
+  display: block;
+  width: 100%;
+}
+
+.conversation-card-selected .conversation-card .photo {
+  width: 20%;
+  display: block;
+  float: left;
+}
+
+.conversation-card-selected .conversation-card .message {
+  display: block;
+  float: left;
+  margin-left: 25px;
 }
 
 /* COLS */

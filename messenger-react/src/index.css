@@ -27,6 +27,7 @@ body {
 
 .container-tabs {
   margin-top: 25px;
+  margin-bottom: 100px;
 }
 
 .color-white {
@@ -149,8 +150,20 @@ body {
   cursor: pointer;
 }
 
-.separator.bordered, .preview .user-name span:hover {
+.container-conversation-selected, .separator.bordered, .preview .user-name span:hover, .conversation-view .title {
   border-bottom: 1px solid lightgray;
+}
+
+.container-conversation-selected, .conversation-view .title {
+  border-top: 1px solid lightgray;
+}
+
+.conversation-view, .container-conversation-selected, .conversation-view .title {
+  border-left: 1px solid lightgray;
+}
+
+.conversation-view .title {
+  border-right: 1px solid lightgray;
 }
 
 .pull-none {
@@ -194,6 +207,86 @@ body {
 
 .conversation-card .actions {
   width: 15%;
+}
+
+.conversation-card-selected .conversation-card .conversation-person,
+.conversation-card-selected .conversation-card .conversation-message, .conversation-card-selected .conversation-card .actions {
+  margin-top: 1rem;
+}
+
+/* Conversation selected */
+.container-conversation-selected {
+  background: #ADA996;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container-conversation-selected {
+  height: 500px;
+}
+
+.conversation-card-selected {
+  display: inline-block;
+  width: 25%;
+}
+
+.conversation-view {
+  background: white;
+  width: calc(75% - 2px);
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.conversation-view .footer, .conversation-view .body, .conversation-view .title {
+  padding: 10px 15px;
+}
+
+.conversation-view .body {
+  height: 350px;
+}
+
+.conversation-view .footer {
+  height: 70px;
+}
+
+.message-left, .message-right {
+  padding: 15px 10px;
+  width: 65%;
+}
+
+.message-right {
+  text-align: right;
+  margin-left: auto;
+}
+
+.message-left {
+  text-align: left;
+  margin-right: auto;
+}
+
+.conversation-view .title {
+  padding: 15px;
+}
+
+.conversation-card-selected .conversation-card {
+  display: block;
+  width: 100%;
+}
+
+.conversation-card-selected .conversation-card .photo {
+  width: 20%;
+  display: block;
+  float: left;
+}
+
+.conversation-card-selected .conversation-card .message {
+  display: block;
+  float: left;
+  margin-left: 25px;
 }
 
 /* COLS */

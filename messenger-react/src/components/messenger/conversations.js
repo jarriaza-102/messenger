@@ -4,21 +4,30 @@ import {connect} from 'react-redux';
 
 import Paper from 'material-ui/Paper';
 import ConversationCard from '../core/conversation-card';
+import ConversationView from '../core/conversation-card/conversationView';
 import {findAll} from '../../actions/conversationActions';
 
 class Conversations extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            list: []
+            list: [],
+            selected: 0
         };
         this.getContent = this.getContent.bind(this);
+        this.updateConversations = this.updateConversations.bind(this);
+        this.getConversationView = this.getConversationView.bind(this);
     }
 
     async componentWillMount() {
         const response = await this.props.dispatch(findAll());
         this.setState({ list: response.data });
-        console.log(response);
+    }
+
+    updateConversations (id) {
+        this.setState({
+            selected: id
+        });
     }
 
     getContent() {
@@ -27,17 +36,36 @@ class Conversations extends React.Component {
         }
         return (
             this.state.list.map((element) => {
-                return <ConversationCard conversation={element} key={element.id}/>;
+                return <ConversationCard updateConversations={(id) => this.updateConversations(id)} selected={this.state.selected} conversation={element} key={element.id}/>;
             })
         );
     }
 
+    getConversationView() {
+        if (this.state.selected == 0) {
+            return '';
+        }
+
+        return (
+            <ConversationView conversation={this.getSelectedConversation()}/>
+        );
+    }
+
+    getSelectedConversation() {
+        for (var i=0;i<this.state.list.length; i++) {
+            if (this.state.list[i].id === this.state.selected)
+                return this.state.list[i];
+        }
+        return null;
+    }
+
     render() {
         return (
-            <div>
-                <Paper zDepth={2}>
+            <div className={(this.state.selected > 0) ? "container-conversation-selected": ""}>
+                <Paper zDepth={2} className={(this.state.selected > 0) ? "conversation-card-selected": ""}>
                     {this.getContent()}
                 </Paper>
+                {this.getConversationView()}
             </div>
 
         );

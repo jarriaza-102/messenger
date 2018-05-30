@@ -2,3 +2,4 @@
 ALTER TABLE "conversation" ADD COLUMN "slave" INT;
 ALTER TABLE "message" DROP COLUMN "answerId";
 ALTER TABLE "message" ADD COLUMN "answerId" INT NULL;
+ALTER TABLE "message" ADD COLUMN "sentDate" VARCHAR(500) NULL;
