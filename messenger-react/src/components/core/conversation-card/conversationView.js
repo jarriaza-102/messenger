@@ -33,7 +33,6 @@ class ConversationView extends React.Component {
 
     render() {
         getSocket().on('receivedMessage', (data) => {
-            console.log('messages');
             this.setConversationMessages();
         });
 

@@ -1,15 +1,18 @@
 ﻿CREATE OR REPLACE FUNCTION get_conversations_by_user(user_id_ INT) 
     RETURNS table 
-	(id INT , "owner" INT, conversationType INT, "name" VARCHAR,message VARCHAR, sender VARCHAR, senderid INT, sendto INT, photo VARCHAR) 
+	(id INT , "owner" INT, conversationType INT, "name" VARCHAR,message VARCHAR, sentdate VARCHAR, sender VARCHAR, senderid INT, sendto INT, photo VARCHAR) 
     AS
     $BODY$
 	SELECT "conversation"."id" , "conversation"."owner", "conversation"."conversationType", "conversation"."name",
 		(SELECT message FROM "message" WHERE "conversationId" = "conversation"."id" ORDER BY id DESC LIMIT 1) as "message",
+		
+		(SELECT "sentDate" FROM "message" WHERE "conversationId" = "conversation"."id" ORDER BY id DESC LIMIT 1) as "sentdate",
 
 		CASE (SELECT "user"."id" FROM "message" 
 			INNER JOIN "user" ON "message"."userId" = "user"."id"
 			WHERE "conversationId" = "conversation"."id"
 			ORDER BY "message"."id" DESC LIMIT 1)
+
 			
 		WHEN user_id_ 
 			THEN 
@@ -72,7 +75,8 @@
 		FROM "conversation" 
 		INNER JOIN "conversation_users" ON "conversation"."id" = "conversation_users"."conversation_id"	
 		INNER JOIN "user" ON "conversation_users"."user_id" = "user"."id"	
-		WHERE "conversation_users"."user_id" = user_id_;
+		WHERE "conversation_users"."user_id" = user_id_
+		ORDER BY "sentdate" DESC;
     $BODY$
    LANGUAGE 'sql';
 

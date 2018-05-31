@@ -24,13 +24,3 @@ export function sendMessage(message) {
         message: message.message
     });
 }
-
-/*if (socket === undefined) {
-    setSocket();
-
-    socket.on('receivedMessage', (data) => {
-        console.log('receivedMessage starts');
-        console.log(data);
-        console.log('receivedMessage ends');
-    });
-}*/

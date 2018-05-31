@@ -70,7 +70,6 @@ class Conversations extends React.Component {
         console.log(this.state.selected);
         if (this.state.selected == 0) {
             getSocket().on('receivedMessage', (data) => {
-                console.log('conversations');
                 this.setConversations();
             });
         }

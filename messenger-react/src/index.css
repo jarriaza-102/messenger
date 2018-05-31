@@ -302,7 +302,7 @@ body {
 .conversation-card-selected .conversation-card .message {
   display: block;
   float: left;
-  margin-left: 25px;
+  margin-left: 15px;
 }
 
 /* COLS */
@@ -438,4 +438,4 @@ body {
   margin-left: 99.9999999996%;
 }
 
-/*# sourceMappingURL=index.css.map */
+/*# sourceMappingURL=messenger-react/src/index.css.map */
