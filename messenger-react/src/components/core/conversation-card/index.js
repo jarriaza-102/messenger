@@ -24,7 +24,6 @@ class ConversationCard extends React.Component {
 
     getConversation() {
         this.props.updateConversations(this.props.conversation.id);
-        console.log(this.props.conversation);
     }
 
     render() {

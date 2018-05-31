@@ -6,6 +6,7 @@ import Paper from 'material-ui/Paper';
 import ConversationCard from '../core/conversation-card';
 import ConversationView from '../core/conversation-card/conversationView';
 import {findAll} from '../../actions/conversationActions';
+import {getSocket} from '../../socket';
 
 class Conversations extends React.Component {
     constructor(props) {
@@ -19,9 +20,15 @@ class Conversations extends React.Component {
         this.getConversationView = this.getConversationView.bind(this);
     }
 
-    async componentWillMount() {
-        const response = await this.props.dispatch(findAll());
-        this.setState({ list: response.data });
+    componentWillMount() {
+        this.setConversations();
+    }
+
+    setConversations() {
+        this.props.dispatch(findAll()).
+            then((response) => {
+                this.setState({ list: response.data });
+            });
     }
 
     updateConversations (id) {
@@ -60,6 +67,14 @@ class Conversations extends React.Component {
     }
 
     render() {
+        console.log(this.state.selected);
+        if (this.state.selected == 0) {
+            getSocket().on('receivedMessage', (data) => {
+                console.log('conversations');
+                this.setConversations();
+            });
+        }
+
         return (
             <div className={(this.state.selected > 0) ? "container-conversation-selected": ""}>
                 <Paper zDepth={2} className={(this.state.selected > 0) ? "conversation-card-selected": ""}>

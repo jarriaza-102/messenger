@@ -93,12 +93,11 @@ class UserPreview extends React.Component {
 
     async sendMessageToUser() {
         if (isNullOrUndefined(this.state.message)) return;
-        const message = {
+        await this.props.dispatch(send({
             slave: this.props.user.id,
             messageType: 1,
             message: this.state.message
-        };
-        await this.props.dispatch(send(message));
+        }));
         this.setState({
             message: '',
             open: false
@@ -131,18 +130,20 @@ class UserPreview extends React.Component {
         }
 
         const actions = [
-            <div className="col-2 pull-none inline-block"><IconButton tooltip="View Profile" onClick={this.viewUserProfile}>
+            <div key="1" className="col-2 pull-none inline-block"><IconButton tooltip="View Profile" onClick={this.viewUserProfile}>
                 <SocialPerson /></IconButton></div>
         ];
         if (this.props.user.id != getLoggedUser().user.id) {
-            actions.push(<div className="col-2 pull-none inline-block"><IconButton tooltip="Send Message" onClick={this.sendMessage}>
+            actions.push(<div key="2" className="col-2 pull-none inline-block"><IconButton tooltip="Send Message" onClick={this.sendMessage}>
                         <CommunicationMessage /></IconButton></div>
             );
-            actions.push(<div className="col-2 pull-none inline-block"><IconButton tooltip="A Pistear" onClick={this.requestPeda}>
+            actions.push(<div key="3" className="col-2 pull-none inline-block"><IconButton tooltip="A Pistear" onClick={this.requestPeda}>
                         <PlacesSmokingRooms /></IconButton></div>
             );
         }
-        actions.push(<IconButton tooltip="Share" onClick={this.share}><SocialShare /></IconButton>);
+
+        actions.push(<div key="4" className="col-2 pull-none inline-block"><IconButton key="4" tooltip="Share" onClick={this.share}>
+                        <SocialShare /></IconButton></div>);
 
         return (
             <div>

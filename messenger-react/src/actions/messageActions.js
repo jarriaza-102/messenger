@@ -1,5 +1,6 @@
 import {messageConstants} from './actionTypes';
 import messageApi from '../api/messageApi';
+import {sendMessage} from '../socket';
 
 export function send(message) {
     return dispatch => {
@@ -7,6 +8,7 @@ export function send(message) {
         return new Promise(async (resolve, reject) => {
             const response = await messageApi.send(message);
             dispatch(success(messageConstants.MESSAGE_SUCCESS, response.data));
+            sendMessage(message);
             resolve(response);
         });
     };

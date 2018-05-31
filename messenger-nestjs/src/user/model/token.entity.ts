@@ -14,4 +14,10 @@ export class Token {
         name: 'user_id'
     })
     userId:number;
+
+    @Column({
+        name: 'socket',
+        nullable: true
+    })
+    socket:string;
 }

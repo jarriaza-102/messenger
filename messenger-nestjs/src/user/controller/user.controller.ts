@@ -44,9 +44,7 @@ export class UserController extends BaseController {
 
     @Post('login')
     async login(@Body() user: User) {
-        console.log(user);
         user = await this.userService.login(user);
-        console.log(user);
         if (user === undefined) {
             return this.createErrorResponse('User does not exist');
         }
@@ -69,7 +67,7 @@ export class UserController extends BaseController {
         return this.createSuccessResponse(true);
     }
 
-    async validate(req, id) {
+    async validate(req, id): User {
         const user = await this.userService.findByToken(req.get(Actions.getAuthTokenHeaderName()));
         if (user.id != id) {
             throw new HttpException('User does not match', HttpStatus.INTERNAL_SERVER_ERROR);

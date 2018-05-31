@@ -1,5 +1,5 @@
 var app = require('./app');
-var port = process.env.PORT || 3000;
+var port = 3002;
 var server = require('http').createServer(app);
 
 server.listen(port, function() {

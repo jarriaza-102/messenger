@@ -15,14 +15,23 @@ export class AuthTokenGuard implements CanActivate {
         if (request.originalUrl === '/users/login') {
             return true;
         }
-        const apiToken = request.get(Actions.getAuthTokenHeaderName());
+
+        let apiToken = undefined;
+        if (request.get) {
+            apiToken = request.get(Actions.getAuthTokenHeaderName());
+        } else {
+            const socket = context.args[0].id;
+
+            if (socket === undefined)
+                return false;
+
+            return await this.tokenService.findBySocket(socket) !== undefined;
+        }
+
         if (apiToken === undefined) {
             return false;
         }
-        const token = await this.tokenService.findByToken(apiToken);
-        if (token === undefined) {
-            return false;
-        }
-        return true;
+
+        return await this.tokenService.findByToken(apiToken) !== undefined;
     }
 }

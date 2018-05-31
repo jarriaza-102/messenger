@@ -19,7 +19,7 @@ export class UserService {
             where: 'email = ' + Actions.whereSupport(user.email) + ' AND password = ' + Actions.whereSupport(user.password)
         });
         if (login === undefined) return;
-        const token = await this.tokenService.save(login.id);
+        const token = await this.tokenService.save(login.id, user.socket);
         return {
             token: token.token,
             user: login

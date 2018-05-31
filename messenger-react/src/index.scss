@@ -245,14 +245,21 @@ body {
 
 /* Conversation selected */
 
-%container-conversation-selected-color {
+%conversation-bg-color {
   background: #ADA996;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+%midnight-bg-color {
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
 .container-conversation-selected {
-  @extend %container-conversation-selected-color;
+  @extend %conversation-bg-color;
   @extend %border-top;
   @extend %border-left;
   @extend %border-bottom;
@@ -261,13 +268,14 @@ body {
 
 .conversation-card-selected {
   display: inline-block;
-  width: 25%;
+  width: calc(25% + 20px);
+  padding: 10px;
 }
 
 .conversation-view {
   @extend %border-left;
   background: white;
-  width: calc(75% - 2px);
+  width: calc(75% - 22px);
   height: 100%;
   display: inline-block;
   vertical-align: top;
@@ -284,7 +292,9 @@ body {
 
 .conversation-view .body {
   @extend %conversation-view-padding;
+  @extend %border-bottom;
   height: 350px;
+  overflow-y: auto;
 }
 
 .conversation-view .footer {
@@ -293,17 +303,22 @@ body {
 }
 
 %message-single{
-  padding: 15px 10px;
+  padding: 10px 15px;
+  border-radius: 30px;
+  margin-bottom: 10px;
   width: 65%;
 }
 
 .message-right {
   @extend %message-single;
+  @extend %midnight-bg-color;
   text-align: right;
   margin-left: auto;
+  color: white;
 }
 
 .message-left {
+  @extend %conversation-bg-color;
   @extend %message-single;
   text-align: left;
   margin-right: auto;
@@ -315,7 +330,9 @@ body {
 }
 
 .conversation-card-selected .conversation-card {
+  padding: 0px;
   display: block;
+  flex-wrap: inherit;
   width: 100%;
 }
 

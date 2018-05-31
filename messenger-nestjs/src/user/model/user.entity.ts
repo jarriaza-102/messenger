@@ -24,6 +24,8 @@ export class User {
 
     roleName: string;
 
+    socketId: string;
+
     setData(user : User) {
         this.id = user.id;
         this.email = user.email;

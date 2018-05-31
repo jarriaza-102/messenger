@@ -5,6 +5,7 @@ import {LoggedUserMiddleware} from "./core/middleware/logged-user.middleware";
 import {UserKeyModule} from "./user-key/user-key.module";
 import {ConversationModule} from "./conversation/conversation.module";
 import {MessageModule} from "./message/message.module";
+import {WebSocketModule} from "./web-sockets/web-socket.module";
 
 @Module({
     imports: [
@@ -12,7 +13,8 @@ import {MessageModule} from "./message/message.module";
         UserModule,
         UserKeyModule,
         ConversationModule,
-        MessageModule
+        MessageModule,
+        WebSocketModule
     ],
   controllers: [],
   providers: []
