@@ -29,6 +29,7 @@ export class MessageService {
 
     async checkIfConversationExists(userId, userId2) {
         const result = await this.messageRepository.query('select * from check_conversation_exists('+userId+','+userId2+')');
+        console.log(result);
         return (result.length > 0) ? result[0].conversationid : 0;
     }
 }

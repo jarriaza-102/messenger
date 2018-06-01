@@ -20,6 +20,10 @@ body {
   margin: 0px;
 }
 
+textarea {
+  resize: none;
+}
+
 .container {
   margin: auto;
   width: 1000px;
@@ -166,6 +170,28 @@ body {
   border-right: 1px solid lightgray;
 }
 
+.message-send-action, .message-to-send-container {
+  line-height: 75px;
+}
+
+.message-to-send-container {
+  width: calc(90% + 20px);
+  float: left;
+}
+
+.message-send-action {
+  float: left;
+  width: calc(10% - 20px);
+}
+
+.message-to-send {
+  width: calc(100% - 20px);
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid darkgray;
+  resize: none;
+}
+
 .pull-none {
   float: none !important;
 }
@@ -261,7 +287,7 @@ body {
 }
 
 .conversation-view .footer {
-  height: 70px;
+  height: 60px;
 }
 
 .message-left, .message-right {
@@ -438,4 +464,4 @@ body {
   margin-left: 99.9999999996%;
 }
 
-/*# sourceMappingURL=messenger-react/src/index.css.map */
+/*# sourceMappingURL=index.css.map */

@@ -6,7 +6,7 @@ let socket = undefined;
 
 function setSocket() {
     if (isNullOrUndefined(socket)) {
-        socket = io('http://localhost:3000');
+        socket = io('http://d91d3b40.ngrok.io');
         socket.emit('connection', { socket: socket.id, token: getLoggedUser().token });
     }
 }

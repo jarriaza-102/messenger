@@ -47,7 +47,11 @@ class SearchResults extends React.Component {
     getUserPhoto(user, size) {
         if (user.photo === 'default') {
             let name = user.fullName.split(' ');
-            name = name[0].substr(0, 1) + name[1].substr(0, 1);
+            if (name.length >= 2) {
+                name = name[0].substr(0, 1) + name[1].substr(0, 1);
+            } else {
+                name = name[0].substr(0, 1);
+            }
             return <Avatar style={{width: size, height: size}}>{name}</Avatar>;
         }
 

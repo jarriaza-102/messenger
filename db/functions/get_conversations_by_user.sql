@@ -66,11 +66,12 @@
 					ORDER BY "message"."id" DESC LIMIT 1) 
 		END as "sendto",
 
-		(SELECT "user"."photo" FROM "message" 
-			INNER JOIN "user" ON "message"."userId" = "user"."id"
-			WHERE "conversationId" = "conversation"."id"
-			AND "user"."id" != user_id_
-			ORDER BY "message"."id" DESC LIMIT 1) as "photo"
+		(SELECT "user"."photo" FROM "conversation" as "conv"
+			INNER JOIN "user" 
+				on "conv"."owner" = "user"."id"
+				or "conv"."slave" = "user"."id"
+			WHERE "conv"."id" = "conversation"."id"
+			AND "user"."id" != user_id_) as "photo"
 			
 		FROM "conversation" 
 		INNER JOIN "conversation_users" ON "conversation"."id" = "conversation_users"."conversation_id"	

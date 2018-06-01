@@ -15,6 +15,10 @@ body {
   margin: 0px;
 }
 
+textarea {
+  resize: none;
+}
+
 .container {
   margin: auto;
   width: 1000px;
@@ -171,6 +175,30 @@ body {
   @extend %border-right;
 }
 
+%message-to-send-line-heigh {
+  line-height: 75px;
+}
+
+.message-to-send-container {
+  @extend %message-to-send-line-heigh;
+  width: calc(90% + 20px);
+  float: left;
+}
+
+.message-send-action {
+  @extend %message-to-send-line-heigh;
+  float: left;
+  width: calc(10% - 20px);
+}
+
+.message-to-send {
+  width: calc(100% - 20px);
+  border-radius: 10px;
+  padding: 5px 10px;
+  border: 1px solid darkgray;
+  resize: none;
+}
+
 .preview .user-name span:hover {
   @extend %border-bottom;
 }
@@ -299,7 +327,7 @@ body {
 
 .conversation-view .footer {
   @extend %conversation-view-padding;
-  height: 70px;
+  height: 60px;
 }
 
 %message-single{

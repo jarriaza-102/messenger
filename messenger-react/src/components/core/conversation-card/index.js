@@ -13,9 +13,14 @@ class ConversationCard extends React.Component {
 
     getUserPhoto() {
         const size = (this.props.selected > 0 ) ? "50px" : "75px";
+        console.log(this.props.conversation.photo);
         if (this.props.conversation.photo === 'default') {
             let name = this.props.conversation.sender.split(' ');
-            name = name[0].substr(0, 1) + name[1].substr(0, 1);
+            if (name.length >= 2) {
+                name = name[0].substr(0, 1) + name[1].substr(0, 1);
+            } else {
+                name = name[0].substr(0, 1);
+            }
             return <Avatar style={{width: size, height: size}}>{name}</Avatar>;
         }
 
